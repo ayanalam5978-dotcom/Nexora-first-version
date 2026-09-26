@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — JavaScript Fundamentals</title>
+    <!-- placeholder CSS (Phase 2) -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="feed.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="notifications.html">🔔</a></li>
+                <li><a href="settings.html">⚙️</a></li>
+                <li><a href="index.html" class="nav-logout-btn">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="mobileMenuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== COURSE CONTAINER ===== -->
+    <div class="course-container">
+        <!-- ===== COURSE HEADER ===== -->
+        <header class="course-header">
+            <div class="course-header-content">
+                <div class="course-breadcrumb">
+                    <a href="courses.html">📚 Courses</a> / <span>JavaScript Fundamentals</span>
+                </div>
+                <h1>JavaScript Fundamentals</h1>
+                <p class="course-subtitle">Learn JavaScript from scratch with practical projects and real-world examples</p>
+                <div class="course-header-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Instructor</span>
+                        <span class="meta-value">👤 Sarah Johnson</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Difficulty</span>
+                        <span class="meta-value beginner">Beginner</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Duration</span>
+                        <span class="meta-value">⏱️ 20 hours</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Lessons</span>
+                        <span class="meta-value">📚 25 lessons</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Category</span>
+                        <span class="meta-value">💻 Programming</span>
+                    </div>
+                </div>
+                <div class="course-header-actions">
+                    <button class="btn-continue-course">▶ Continue</button>
+                    <button class="btn-save-course">🔖 Save</button>
+                    <button class="btn-share-course">📤 Share</button>
+                </div>
+            </div>
+            <div class="course-header-image">
+                <div class="course-image-placeholder">💻 JavaScript</div>
+            </div>
+        </header>
+
+        <!-- ===== COURSE BODY ===== -->
+        <div class="course-body-container">
+            <!-- ===== LEFT COLUMN ===== -->
+            <main class="course-main">
+                <!-- ===== COURSE DESCRIPTION ===== -->
+                <section class="course-description">
+                    <h2>📖 Course Description</h2>
+                    <p>
+                        This comprehensive JavaScript course is designed for beginners who want to
+                        master the fundamentals of programming. You'll learn everything from basic
+                        syntax to advanced concepts like closures, promises, and async/await.
+                    </p>
+                    <p>
+                        Throughout this course, you'll build real-world projects including a
+                        to-do app, a weather dashboard, and a simple game. By the end, you'll
+                        have the skills to build interactive web applications.
+                    </p>
+                    <div class="course-highlights">
+                        <div class="highlight-item">✅ 25 video lessons</div>
+                        <div class="highlight-item">✅ 10 coding exercises</div>
+                        <div class="highlight-item">✅ 3 projects</div>
+                        <div class="highlight-item">✅ Certificate of completion</div>
+                        <div class="highlight-item">✅ Lifetime access</div>
+                    </div>
+                </section>
+
+                <!-- ===== COURSE CURRICULUM ===== -->
+                <section class="course-curriculum">
+                    <h2>📚 Course Curriculum</h2>
+                    
+                    <!-- Section 1 -->
+                    <div class="curriculum-section">
+                        <div class="section-header">
+                            <h3>Section 1: Introduction</h3>
+                            <span class="section-duration">2 hours</span>
+                        </div>
+                        <ul class="lesson-list">
+                            <li class="lesson-item completed">
+                                <span class="lesson-status">✅</span>
+                                <span class="lesson-title">What is JavaScript?</span>
+                                <span class="lesson-duration">15 min</span>
+                            </li>
+                            <li class="lesson-item completed">
+                                <span class="lesson-status">✅</span>
+                                <span class="lesson-title">Setting Up Your Environment</span>
+                                <span class="lesson-duration">10 min</span>
+                            </li>
+                            <li class="lesson-item completed">
+                                <span class="lesson-status">✅</span>
+                                <span class="lesson-title">Your First JavaScript Program</span>
+                                <span class="lesson-duration">12 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">→</span>
+                                <span class="lesson-title">Variables and Data Types</span>
+                                <span class="lesson-duration">20 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Exercise: Variables Practice</span>
+                                <span class="lesson-duration">15 min</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="curriculum-section">
+                        <div class="section-header">
+                            <h3>Section 2: Core Concepts</h3>
+                            <span class="section-duration">4 hours</span>
+                        </div>
+                        <ul class="lesson-list">
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Functions</span>
+                                <span class="lesson-duration">25 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Arrays and Objects</span>
+                                <span class="lesson-duration">30 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Loops and Iteration</span>
+                                <span class="lesson-duration">25 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Conditional Statements</span>
+                                <span class="lesson-duration">20 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Exercise: Build a Simple Calculator</span>
+                                <span class="lesson-duration">30 min</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="curriculum-section">
+                        <div class="section-header">
+                            <h3>Section 3: Advanced Topics</h3>
+                            <span class="section-duration">6 hours</span>
+                        </div>
+                        <ul class="lesson-list">
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">DOM Manipulation</span>
+                                <span class="lesson-duration">35 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Event Handling</span>
+                                <span class="lesson-duration">30 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Promises and Async/Await</span>
+                                <span class="lesson-duration">40 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">ES6+ Features</span>
+                                <span class="lesson-duration">25 min</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Project: Build a Weather App</span>
+                                <span class="lesson-duration">45 min</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="curriculum-section">
+                        <div class="section-header">
+                            <h3>Section 4: Real-World Projects</h3>
+                            <span class="section-duration">8 hours</span>
+                        </div>
+                        <ul class="lesson-list">
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Project: To-Do App</span>
+                                <span class="lesson-duration">2 hours</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Project: E-Commerce Cart</span>
+                                <span class="lesson-duration">3 hours</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Project: Portfolio Website</span>
+                                <span class="lesson-duration">3 hours</span>
+                            </li>
+                            <li class="lesson-item">
+                                <span class="lesson-status">○</span>
+                                <span class="lesson-title">Final Project: Full Application</span>
+                                <span class="lesson-duration">4 hours</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- ===== COURSE RESOURCES ===== -->
+                <section class="course-resources">
+                    <h2>📎 Course Resources</h2>
+                    <div class="resources-grid">
+                        <div class="resource-item">📄 Course Syllabus</div>
+                        <div class="resource-item">💻 Code Examples</div>
+                        <div class="resource-item">📝 Practice Exercises</div>
+                        <div class="resource-item">📊 Project Templates</div>
+                        <div class="resource-item">📚 Recommended Reading</div>
+                        <div class="resource-item">🎥 Video Transcripts</div>
+                    </div>
+                </section>
+
+                <!-- ===== COURSE DISCUSSION ===== -->
+                <section class="course-discussion">
+                    <h2>💬 Course Discussion</h2>
+                    <div class="discussion-comments">
+                        <div class="comment">
+                            <div class="comment-user">👤 Alex Morgan</div>
+                            <div class="comment-text">Great course so far! The DOM section is really well explained.</div>
+                            <div class="comment-meta">2 hours ago</div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-user">👤 Priya Patel</div>
+                            <div class="comment-text">Having trouble with the async/await section. Any tips?</div>
+                            <div class="comment-meta">5 hours ago</div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-user">👤 Sarah Johnson (Instructor)</div>
+                            <div class="comment-text">Hi @PriyaPatel, I'll create a detailed post covering async/await with examples!</div>
+                            <div class="comment-meta">1 hour ago</div>
+                        </div>
+                    </div>
+                    <div class="comment-input-area">
+                        <input type="text" placeholder="Ask a question or join the discussion..." />
+                        <button>Post Comment</button>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ===== RIGHT SIDEBAR ===== -->
+            <aside class="course-sidebar">
+                <!-- ===== COURSE PROGRESS ===== -->
+                <div class="sidebar-card course-progress-card">
+                    <h4>📊 Your Progress</h4>
+                    <div class="progress-circle">
+                        <div class="circle">75%</div>
+                    </div>
+                    <div class="progress-details">
+                        <span>Completed: 18/25 lessons</span>
+                        <span>Time spent: 15 hours</span>
+                        <span>Remaining: 5 hours</span>
+                    </div>
+                    <button class="continue-learning-btn">Continue Learning</button>
+                </div>
+
+                <!-- ===== INSTRUCTOR INFO ===== -->
+                <div class="sidebar-card instructor-card">
+                    <h4>👤 Instructor</h4>
+                    <div class="instructor-info">
+                        <div class="instructor-avatar">👤</div>
+                        <div class="instructor-details">
+                            <h5>Sarah Johnson</h5>
+                            <p>Senior Developer & Educator</p>
+                            <span>⭐ 4.9 (234 reviews)</span>
+                        </div>
+                    </div>
+                    <div class="instructor-stats">
+                        <div class="stat-item">📚 12 courses</div>
+                        <div class="stat-item">👥 5.2k students</div>
+                        <div class="stat-item">✍️ 89 reviews</div>
+                    </div>
+                    <button class="message-instructor-btn">💬 Message Instructor</button>
+                </div>
+
+                <!-- ===== RELATED COURSES ===== -->
+                <div class="sidebar-card related-courses">
+                    <h4>📚 Related Courses</h4>
+                    <div class="related-course">
+                        <span>React for Beginners</span>
+                        <button class="view-btn">View</button>
+                    </div>
+                    <div class="related-course">
+                        <span>Python Programming</span>
+                        <button class="view-btn">View</button>
+                    </div>
+                    <div class="related-course">
+                        <span>Web Development Bootcamp</span>
+                        <button class="view-btn">View</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+                <p class="footer-tagline">Next‑gen collaboration</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- placeholder JS -->
+    <script src="script.js"></script>
+    <script src="js/course.js"></script>
+    <script src="clerk-nav.js"></script>
+</body>
+</html>

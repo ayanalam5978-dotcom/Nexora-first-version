@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — Profile</title>
+    <!-- placeholder CSS (Phase 2) -->
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="feed.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="notifications.html">🔔</a></li>
+                <li><a href="settings.html">⚙️</a></li>
+                <li><a href="index.html" class="nav-logout-btn">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="mobileMenuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PROFILE CONTAINER ===== -->
+    <div class="profile-container">
+        <!-- ===== PROFILE HEADER ===== -->
+        <header class="profile-header">
+            <div class="profile-cover">
+                <div class="cover-image">🖼️ Cover Image</div>
+            </div>
+            <div class="profile-info">
+                <div class="profile-avatar-large">👤</div>
+                <div class="profile-details">
+                    <h1>John Doe</h1>
+                    <p class="profile-username">@johndoe</p>
+                    <p class="profile-bio">Full Stack Developer | Educator | Passionate about teaching and learning new technologies. 🚀</p>
+                    <div class="profile-location">📍 New York, USA</div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">156</span>
+                            <span class="stat-label">Posts</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2.4k</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1.8k</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Courses</span>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn-follow">Follow</button>
+                        <button class="btn-message">💬 Message</button>
+                        <button class="btn-edit-profile">✏️ Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== PROFILE BODY ===== -->
+        <div class="profile-body">
+            <!-- ===== LEFT SIDEBAR ===== -->
+            <aside class="profile-sidebar">
+                <!-- ===== ACHIEVEMENTS/BADGES ===== -->
+                <div class="sidebar-card achievements-card">
+                    <h4>🏆 Achievements</h4>
+                    <div class="badges-grid">
+                        <div class="badge-item">
+                            <span class="badge-icon">🌟</span>
+                            <span class="badge-name">Top Contributor</span>
+                        </div>
+                        <div class="badge-item">
+                            <span class="badge-icon">📚</span>
+                            <span class="badge-name">Course Master</span>
+                        </div>
+                        <div class="badge-item">
+                            <span class="badge-icon">🏅</span>
+                            <span class="badge-name">100 Posts</span>
+                        </div>
+                        <div class="badge-item">
+                            <span class="badge-icon">🎯</span>
+                            <span class="badge-name">Perfect Attendance</span>
+                        </div>
+                        <div class="badge-item">
+                            <span class="badge-icon">💡</span>
+                            <span class="badge-name">Innovator</span>
+                        </div>
+                        <div class="badge-item">
+                            <span class="badge-icon">🤝</span>
+                            <span class="badge-name">Mentor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== LEARNING PROGRESS ===== -->
+                <div class="sidebar-card progress-card">
+                    <h4>📊 Learning Progress</h4>
+                    <div class="progress-item">
+                        <span>JavaScript Fundamentals</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                        <span class="progress-percent">75%</span>
+                    </div>
+                    <div class="progress-item">
+                        <span>Data Science Basics</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%;"></div>
+                        </div>
+                        <span class="progress-percent">40%</span>
+                    </div>
+                    <div class="progress-item">
+                        <span>Physics: Mechanics</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                        <span class="progress-percent">✅</span>
+                    </div>
+                    <div class="progress-item">
+                        <span>UI/UX Design Principles</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 10%;"></div>
+                        </div>
+                        <span class="progress-percent">10%</span>
+                    </div>
+                    <a href="courses.html" class="view-all-link">View all courses →</a>
+                </div>
+
+                <!-- ===== SAVED POSTS ===== -->
+                <div class="sidebar-card saved-posts-card">
+                    <h4>🔖 Saved Posts</h4>
+                    <div class="saved-item">
+                        <span>Understanding Machine Learning</span>
+                        <span class="saved-date">2 days ago</span>
+                    </div>
+                    <div class="saved-item">
+                        <span>React Hooks Explained</span>
+                        <span class="saved-date">5 days ago</span>
+                    </div>
+                    <div class="saved-item">
+                        <span>Calculus in Real Life</span>
+                        <span class="saved-date">1 week ago</span>
+                    </div>
+                    <a href="#" class="view-all-link">View all saved →</a>
+                </div>
+            </aside>
+
+            <!-- ===== MAIN CONTENT ===== -->
+            <main class="profile-main">
+                <!-- ===== PROFILE TABS ===== -->
+                <div class="profile-tabs">
+                    <button class="tab-btn active" data-tab="posts">📝 Posts</button>
+                    <button class="tab-btn" data-tab="courses">📚 Courses</button>
+                    <button class="tab-btn" data-tab="saved">🔖 Saved</button>
+                    <button class="tab-btn" data-tab="about">ℹ️ About</button>
+                </div>
+
+                <!-- ===== POSTS TAB ===== -->
+                <div class="tab-content active" id="posts-tab">
+                    <div class="user-posts">
+                        <!-- Post 1 -->
+                        <article class="post-card">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="post-avatar">👤</div>
+                                    <div class="post-user-info">
+                                        <span class="post-username">John Doe</span>
+                                        <span class="post-userhandle">@johndoe</span>
+                                        <span class="post-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="post-tags">
+                                    <span class="post-tag">#Programming</span>
+                                    <span class="post-tag">#WebDev</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>Just published a new tutorial on JavaScript closures! Check it out and let me know what you think. 🚀</p>
+                                <div class="post-image-placeholder">📸 Tutorial thumbnail</div>
+                            </div>
+                            <div class="post-actions-bar">
+                                <button class="post-action">❤️ Like (24)</button>
+                                <button class="post-action">💬 Comment (5)</button>
+                                <button class="post-action">🔄 Share</button>
+                                <button class="post-action">🔖 Save</button>
+                            </div>
+                        </article>
+
+                        <!-- Post 2 -->
+                        <article class="post-card">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="post-avatar">👤</div>
+                                    <div class="post-user-info">
+                                        <span class="post-username">John Doe</span>
+                                        <span class="post-userhandle">@johndoe</span>
+                                        <span class="post-time">1 day ago</span>
+                                    </div>
+                                </div>
+                                <div class="post-tags">
+                                    <span class="post-tag">#Mathematics</span>
+                                    <span class="post-tag">#Education</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>Understanding derivatives is crucial for calculus. Here's a simple explanation with real-world examples from physics and economics. 📐</p>
+                                <div class="post-image-placeholder">📊 Graph showing derivative examples</div>
+                            </div>
+                            <div class="post-actions-bar">
+                                <button class="post-action">❤️ Like (18)</button>
+                                <button class="post-action">💬 Comment (3)</button>
+                                <button class="post-action">🔄 Share</button>
+                                <button class="post-action">🔖 Save</button>
+                            </div>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article class="post-card">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="post-avatar">👤</div>
+                                    <div class="post-user-info">
+                                        <span class="post-username">John Doe</span>
+                                        <span class="post-userhandle">@johndoe</span>
+                                        <span class="post-time">3 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="post-tags">
+                                    <span class="post-tag">#Science</span>
+                                    <span class="post-tag">#Physics</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>Excited to announce my new course: "Quantum Physics for Beginners" - Learn about superposition, entanglement, and more! 🚀</p>
+                                <div class="post-image-placeholder">🎓 Course announcement banner</div>
+                            </div>
+                            <div class="post-actions-bar">
+                                <button class="post-action">❤️ Like (45)</button>
+                                <button class="post-action">💬 Comment (12)</button>
+                                <button class="post-action">🔄 Share</button>
+                                <button class="post-action">🔖 Save</button>
+                            </div>
+                        </article>
+
+                        <div class="load-more">
+                            <button class="load-more-btn">Load More Posts</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== COURSES TAB ===== -->
+                <div class="tab-content" id="courses-tab">
+                    <div class="user-courses">
+                        <div class="courses-grid">
+                            <div class="course-card">
+                                <div class="course-image">💻</div>
+                                <div class="course-body">
+                                    <h3>JavaScript Fundamentals</h3>
+                                    <p>Learn JavaScript from scratch</p>
+                                    <div class="course-meta">
+                                        <span class="difficulty beginner">Beginner</span>
+                                        <span class="progress-text">75% Complete</span>
+                                    </div>
+                                    <div class="course-progress">
+                                        <div class="progress-bar" style="width: 75%;"></div>
+                                    </div>
+                                    <a href="course.html" class="btn-continue">Continue</a>
+                                </div>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-image">📊</div>
+                                <div class="course-body">
+                                    <h3>Data Science Basics</h3>
+                                    <p>Introduction to data analysis</p>
+                                    <div class="course-meta">
+                                        <span class="difficulty intermediate">Intermediate</span>
+                                        <span class="progress-text">40% Complete</span>
+                                    </div>
+                                    <div class="course-progress">
+                                        <div class="progress-bar" style="width: 40%;"></div>
+                                    </div>
+                                    <a href="course.html" class="btn-continue">Continue</a>
+                                </div>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-image">⚛️</div>
+                                <div class="course-body">
+                                    <h3>Physics: Mechanics</h3>
+                                    <p>Understanding motion and forces</p>
+                                    <div class="course-meta">
+                                        <span class="difficulty intermediate">Intermediate</span>
+                                        <span class="progress-text">✅ Completed</span>
+                                    </div>
+                                    <div class="course-progress">
+                                        <div class="progress-bar" style="width: 100%;"></div>
+                                    </div>
+                                    <a href="course.html" class="btn-review">Review</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== SAVED TAB ===== -->
+                <div class="tab-content" id="saved-tab">
+                    <div class="saved-posts">
+                        <div class="saved-post-item">
+                            <div class="saved-post-content">
+                                <h4>Understanding Machine Learning Basics</h4>
+                                <p>Learn the fundamentals of ML with practical examples...</p>
+                                <div class="saved-post-meta">
+                                    <span>👤 Sarah Johnson</span>
+                                    <span>❤️ 234 likes</span>
+                                    <span>📌 Saved 2 days ago</span>
+                                </div>
+                            </div>
+                            <button class="unsave-btn">Unsave</button>
+                        </div>
+                        <div class="saved-post-item">
+                            <div class="saved-post-content">
+                                <h4>JavaScript Async/Await Explained</h4>
+                                <p>Master asynchronous programming in JavaScript...</p>
+                                <div class="saved-post-meta">
+                                    <span>👤 Michael Chen</span>
+                                    <span>❤️ 189 likes</span>
+                                    <span>📌 Saved 5 days ago</span>
+                                </div>
+                            </div>
+                            <button class="unsave-btn">Unsave</button>
+                        </div>
+                        <div class="saved-post-item">
+                            <div class="saved-post-content">
+                                <h4>Calculus in Real Life Applications</h4>
+                                <p>Discover how calculus is used in economics, physics, and engineering...</p>
+                                <div class="saved-post-meta">
+                                    <span>👤 Emily Rodriguez</span>
+                                    <span>❤️ 156 likes</span>
+                                    <span>📌 Saved 1 week ago</span>
+                                </div>
+                            </div>
+                            <button class="unsave-btn">Unsave</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ABOUT TAB ===== -->
+                <div class="tab-content" id="about-tab">
+                    <div class="about-content">
+                        <div class="about-section">
+                            <h3>👤 About Me</h3>
+                            <p>Full Stack Developer with 5+ years of experience. Passionate about teaching and learning new technologies. I believe in making complex concepts simple and accessible to everyone.</p>
+                        </div>
+                        <div class="about-section">
+                            <h3>🎯 Interests</h3>
+                            <div class="interests-tags">
+                                <span class="interest-tag">Web Development</span>
+                                <span class="interest-tag">Machine Learning</span>
+                                <span class="interest-tag">Data Science</span>
+                                <span class="interest-tag">Physics</span>
+                                <span class="interest-tag">Mathematics</span>
+                                <span class="interest-tag">Education</span>
+                                <span class="interest-tag">Open Source</span>
+                            </div>
+                        </div>
+                        <div class="about-section">
+                            <h3>📚 Skills</h3>
+                            <div class="skills-list">
+                                <div class="skill-item">
+                                    <span>JavaScript</span>
+                                    <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>Python</span>
+                                    <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>React</span>
+                                    <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>Node.js</span>
+                                    <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>SQL</span>
+                                    <div class="skill-bar"><div class="skill-fill" style="width: 65%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+                <p class="footer-tagline">Next‑gen collaboration</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- placeholder JS -->
+    <script src="script.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="clerk-nav.js"></script>
+</body>
+</html>

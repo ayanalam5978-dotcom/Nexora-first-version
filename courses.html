@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — Courses</title>
+    <!-- placeholder CSS (Phase 2) -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="feed.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="notifications.html">🔔</a></li>
+                <li><a href="settings.html">⚙️</a></li>
+                <li><a href="index.html" class="nav-logout-btn">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="mobileMenuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== COURSES CONTAINER ===== -->
+    <div class="courses-container">
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="courses-sidebar">
+            <div class="sidebar-profile">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-name">John Doe</div>
+                <div class="profile-username">@johndoe</div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Enrolled</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">In Progress</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="feed.html">🏠 Feed</a></li>
+                    <li><a href="explore.html">🔎 Explore</a></li>
+                    <li><a href="courses.html" class="active">📚 My Courses</a></li>
+                    <li><a href="profile.html">👤 Profile</a></li>
+                    <li><a href="messages.html">💬 Messages</a></li>
+                    <li><a href="notifications.html">🔔 Notifications</a></li>
+                    <li><a href="settings.html">⚙️ Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-filters">
+                <h4>Filter Courses</h4>
+                <div class="filter-group">
+                    <h5>Category</h5>
+                    <label><input type="checkbox" checked /> All</label>
+                    <label><input type="checkbox" /> Programming</label>
+                    <label><input type="checkbox" /> Mathematics</label>
+                    <label><input type="checkbox" /> Science</label>
+                    <label><input type="checkbox" /> Languages</label>
+                    <label><input type="checkbox" /> Humanities</label>
+                    <label><input type="checkbox" /> Business</label>
+                </div>
+                <div class="filter-group">
+                    <h5>Difficulty</h5>
+                    <label><input type="checkbox" checked /> All</label>
+                    <label><input type="checkbox" /> Beginner</label>
+                    <label><input type="checkbox" /> Intermediate</label>
+                    <label><input type="checkbox" /> Advanced</label>
+                </div>
+                <div class="filter-group">
+                    <h5>Sort By</h5>
+                    <select>
+                        <option>Most Popular</option>
+                        <option>Newest</option>
+                        <option>Highest Rated</option>
+                        <option>Most Enrolled</option>
+                        <option>Duration: Shortest</option>
+                        <option>Duration: Longest</option>
+                    </select>
+                </div>
+                <button class="filter-apply-btn">Apply Filters</button>
+            </div>
+        </aside>
+
+        <!-- ===== MAIN COURSES CONTENT ===== -->
+        <main class="courses-main">
+            <!-- ===== SEARCH BAR ===== -->
+            <div class="courses-search">
+                <input type="text" placeholder="🔍 Search for courses..." />
+                <button class="search-btn">Search</button>
+            </div>
+
+            <!-- ===== COURSE STATS ===== -->
+            <div class="courses-stats">
+                <div class="stat-card">
+                    <span class="stat-icon">📚</span>
+                    <div class="stat-info">
+                        <h3>24</h3>
+                        <p>Total Courses</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">✅</span>
+                    <div class="stat-info">
+                        <h3>8</h3>
+                        <p>Completed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🔄</span>
+                    <div class="stat-info">
+                        <h3>4</h3>
+                        <p>In Progress</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">⭐</span>
+                    <div class="stat-info">
+                        <h3>4.8</h3>
+                        <p>Average Rating</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== MY COURSES ===== -->
+            <section class="my-courses">
+                <h2>📖 My Courses</h2>
+                <div class="courses-grid">
+                    <!-- Course Card 1 -->
+                    <div class="course-card">
+                        <div class="course-image">💻</div>
+                        <div class="course-body">
+                            <h3>JavaScript Fundamentals</h3>
+                            <p>Learn JavaScript from scratch with practical projects</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Sarah Johnson</span>
+                                <span class="difficulty beginner">Beginner</span>
+                                <span class="duration">⏱️ 20 hours</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar" style="width: 75%;"></div>
+                                <span class="progress-text">75% Complete</span>
+                            </div>
+                            <div class="course-actions">
+                                <a href="course.html" class="btn-continue">Continue</a>
+                                <span class="lessons-count">📚 25 lessons</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="course-card">
+                        <div class="course-image">📊</div>
+                        <div class="course-body">
+                            <h3>Data Science Basics</h3>
+                            <p>Introduction to data analysis and visualization</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Michael Chen</span>
+                                <span class="difficulty intermediate">Intermediate</span>
+                                <span class="duration">⏱️ 30 hours</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar" style="width: 40%;"></div>
+                                <span class="progress-text">40% Complete</span>
+                            </div>
+                            <div class="course-actions">
+                                <a href="course.html" class="btn-continue">Continue</a>
+                                <span class="lessons-count">📚 35 lessons</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 3 -->
+                    <div class="course-card">
+                        <div class="course-image">⚛️</div>
+                        <div class="course-body">
+                            <h3>Physics: Mechanics</h3>
+                            <p>Understanding motion, forces, and energy</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 David Kim</span>
+                                <span class="difficulty intermediate">Intermediate</span>
+                                <span class="duration">⏱️ 18 hours</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar" style="width: 100%;"></div>
+                                <span class="progress-text">✅ Completed</span>
+                            </div>
+                            <div class="course-actions">
+                                <a href="course.html" class="btn-review">Review</a>
+                                <span class="lessons-count">📚 20 lessons</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 4 -->
+                    <div class="course-card">
+                        <div class="course-image">🎨</div>
+                        <div class="course-body">
+                            <h3>UI/UX Design Principles</h3>
+                            <p>Learn design fundamentals and user experience</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Emily Rodriguez</span>
+                                <span class="difficulty beginner">Beginner</span>
+                                <span class="duration">⏱️ 15 hours</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar" style="width: 10%;"></div>
+                                <span class="progress-text">10% Complete</span>
+                            </div>
+                            <div class="course-actions">
+                                <a href="course.html" class="btn-start">Start</a>
+                                <span class="lessons-count">📚 18 lessons</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== RECOMMENDED COURSES ===== -->
+            <section class="recommended-courses">
+                <h2>⭐ Recommended for You</h2>
+                <div class="courses-grid">
+                    <!-- Recommended Course 1 -->
+                    <div class="course-card recommended">
+                        <div class="course-image">🤖</div>
+                        <div class="course-body">
+                            <h3>Machine Learning Fundamentals</h3>
+                            <p>Learn ML algorithms and neural networks</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Priya Patel</span>
+                                <span class="difficulty advanced">Advanced</span>
+                                <span class="duration">⏱️ 40 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.9</span>
+                                <span>📚 50 lessons</span>
+                                <span>👥 1.2k enrolled</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Course 2 -->
+                    <div class="course-card recommended">
+                        <div class="course-image">🌐</div>
+                        <div class="course-body">
+                            <h3>Web Development Bootcamp</h3>
+                            <p>Full stack web development with React and Node.js</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Alex Morgan</span>
+                                <span class="difficulty intermediate">Intermediate</span>
+                                <span class="duration">⏱️ 45 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.8</span>
+                                <span>📚 60 lessons</span>
+                                <span>👥 856 enrolled</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Course 3 -->
+                    <div class="course-card recommended">
+                        <div class="course-image">🧬</div>
+                        <div class="course-body">
+                            <h3>Biology: Cell Structure</h3>
+                            <p>Understanding cellular biology and function</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 David Kim</span>
+                                <span class="difficulty beginner">Beginner</span>
+                                <span class="duration">⏱️ 12 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.6</span>
+                                <span>📚 15 lessons</span>
+                                <span>👥 432 enrolled</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== ALL COURSES ===== -->
+            <section class="all-courses">
+                <h2>📚 All Available Courses</h2>
+                <div class="courses-grid">
+                    <!-- Course 1 -->
+                    <div class="course-card">
+                        <div class="course-image">📐</div>
+                        <div class="course-body">
+                            <h3>Calculus I</h3>
+                            <p>Limits, derivatives, and integrals</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Dr. James Lee</span>
+                                <span class="difficulty intermediate">Intermediate</span>
+                                <span class="duration">⏱️ 25 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.7</span>
+                                <span>📚 30 lessons</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card">
+                        <div class="course-image">🧪</div>
+                        <div class="course-body">
+                            <h3>Chemistry: Organic</h3>
+                            <p>Organic chemistry fundamentals</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Prof. Lisa Park</span>
+                                <span class="difficulty advanced">Advanced</span>
+                                <span class="duration">⏱️ 35 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.5</span>
+                                <span>📚 40 lessons</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card">
+                        <div class="course-image">📖</div>
+                        <div class="course-body">
+                            <h3>English Literature</h3>
+                            <p>Classic and contemporary literature</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Dr. Helen Cooper</span>
+                                <span class="difficulty beginner">Beginner</span>
+                                <span class="duration">⏱️ 20 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.4</span>
+                                <span>📚 22 lessons</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Course 4 -->
+                    <div class="course-card">
+                        <div class="course-image">🏛️</div>
+                        <div class="course-body">
+                            <h3>World History</h3>
+                            <p>From ancient civilizations to modern times</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Dr. Robert Wilson</span>
+                                <span class="difficulty intermediate">Intermediate</span>
+                                <span class="duration">⏱️ 30 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.6</span>
+                                <span>📚 35 lessons</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Course 5 -->
+                    <div class="course-card">
+                        <div class="course-image">🎵</div>
+                        <div class="course-body">
+                            <h3>Music Theory</h3>
+                            <p>Understanding music composition</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Emma Davis</span>
+                                <span class="difficulty beginner">Beginner</span>
+                                <span class="duration">⏱️ 15 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.3</span>
+                                <span>📚 18 lessons</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Course 6 -->
+                    <div class="course-card">
+                        <div class="course-image">💼</div>
+                        <div class="course-body">
+                            <h3>Business Management</h3>
+                            <p>Leadership and organizational skills</p>
+                            <div class="course-meta">
+                                <span class="instructor">👤 Sarah Thompson</span>
+                                <span class="difficulty intermediate">Intermediate</span>
+                                <span class="duration">⏱️ 28 hours</span>
+                            </div>
+                            <div class="course-rating">
+                                <span>⭐ 4.5</span>
+                                <span>📚 32 lessons</span>
+                            </div>
+                            <button class="btn-enroll">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="load-more">
+                    <button class="load-more-btn">Load More Courses</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- ===== RIGHT SIDEBAR ===== -->
+        <aside class="courses-right-sidebar">
+            <div class="enrolled-courses">
+                <h4>📊 Your Progress</h4>
+                <div class="progress-item">
+                    <span>JavaScript Fundamentals</span>
+                    <div class="mini-progress">
+                        <div class="mini-bar" style="width: 75%;"></div>
+                        <span>75%</span>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span>Data Science Basics</span>
+                    <div class="mini-progress">
+                        <div class="mini-bar" style="width: 40%;"></div>
+                        <span>40%</span>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span>Physics: Mechanics</span>
+                    <div class="mini-progress">
+                        <div class="mini-bar" style="width: 100%;"></div>
+                        <span>✅</span>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span>UI/UX Design Principles</span>
+                    <div class="mini-progress">
+                        <div class="mini-bar" style="width: 10%;"></div>
+                        <span>10%</span>
+                    </div>
+                </div>
+                <a href="#" class="view-all-progress">View all courses →</a>
+            </div>
+
+            <div class="popular-courses">
+                <h4>🔥 Popular This Week</h4>
+                <div class="popular-item">
+                    <span>📚 JavaScript Masterclass</span>
+                    <span class="popular-count">2.3k enrolled</span>
+                </div>
+                <div class="popular-item">
+                    <span>📚 Python for Data Science</span>
+                    <span class="popular-count">1.8k enrolled</span>
+                </div>
+                <div class="popular-item">
+                    <span>📚 Web Development Bootcamp</span>
+                    <span class="popular-count">1.5k enrolled</span>
+                </div>
+                <div class="popular-item">
+                    <span>📚 Machine Learning AI</span>
+                    <span class="popular-count">1.2k enrolled</span>
+                </div>
+            </div>
+
+            <div class="instructors-note">
+                <h4>💡 Become an Instructor</h4>
+                <p>Share your knowledge and earn!</p>
+                <button class="become-instructor-btn">Apply Now</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+                <p class="footer-tagline">Next‑gen collaboration</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- placeholder JS -->
+    <script src="script.js"></script>
+    <script src="js/courses.js"></script>
+    <script src="clerk-nav.js"></script>
+</body>
+</html>

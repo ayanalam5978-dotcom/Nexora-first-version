@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — Feed</title>
+    <!-- placeholder CSS (Phase 2) -->
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="feed.html" class="active">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="notifications.html">🔔</a></li>
+                <li><a href="settings.html">⚙️</a></li>
+                <li><a href="index.html" class="nav-logout-btn">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="mobileMenuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN FEED SECTION ===== -->
+    <div class="feed-container">
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="feed-sidebar">
+            <div class="sidebar-profile">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-name">Ayan Alam</div>
+                <div class="profile-username">@Ayan Alam CEO of Nexora</div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="feed.html" class="active">🏠 Feed</a></li>
+                    <li><a href="explore.html">🔎 Explore</a></li>
+                    <li><a href="skills.html">👑⚡🗿 extremly valuable skils</a></li>
+                    <li><a href="english.html">Master English 👑</a><</li>
+                    <li><a href="profile.html">👤 Profile</a></li>
+                    <li><a href="messages.html">💬 Messages</a></li>
+                    <li><a href="notifications.html">🔔 Notifications</a></li>
+                    <li><a href="settings.html">⚙️ Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-tags">
+                <h4>Trending Topics</h4>
+                <div class="tag-list">
+                    <span class="tag">#Mathematics</span>
+                    <span class="tag">#Programming</span>
+                    <span class="tag">#Science</span>
+                    <span class="tag">#English</span>
+                    <span class="tag">#History</span>
+                    <span class="tag">#AI</span>
+                    <span class="tag">#WebDev</span>
+                    <span class="tag">#Physics</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ===== MAIN FEED ===== -->
+        <main class="feed-main">
+            <!-- ===== CREATE POST ===== -->
+            <div class="create-post">
+                <div class="post-input-area">
+                    <div class="user-avatar-small">👤</div>
+                    <input type="text" placeholder="What's on your mind? Share something educational..." />
+                </div>
+                <div class="post-actions">
+                    <button class="post-btn-text">📝 Text</button>
+                    <button class="post-btn-image">🖼️ Image</button>
+                    <button class="post-btn-subject">🏷️ Add Subject</button>
+                    <button class="post-btn-submit">Post</button>
+                </div>
+            </div>
+
+            <!-- ===== FEED POSTS ===== -->
+            <div class="feed-posts">
+                <!-- Post 1 -->
+                <article class="post-card">
+                    <div class="post-header">
+                        <div class="post-user">
+                            <div class="post-avatar">👤</div>
+                            <div class="post-user-info">
+                                <span class="post-username">Sarah Johnson</span>
+                                <span class="post-userhandle">@sarahj</span>
+                            </div>
+                        </div>
+                        <div class="post-tags">
+                            <span class="post-tag">#Programming</span>
+                            <span class="post-tag">#WebDev</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Just completed the JavaScript Fundamentals course! 🎉 The DOM manipulation section was really helpful. Highly recommend for beginners!</p>
+                        <div class="post-image-placeholder">📸 Course completion certificate</div>
+                    </div>
+                    <div class="post-actions-bar">
+                        <button class="post-action">❤️ Like (24)</button>
+                        <button class="post-action">💬 Comment (5)</button>
+                        <button class="post-action">🔄 Share</button>
+                        <button class="post-action">🔖 Save</button>
+                    </div>
+                    <div class="post-comments">
+                        <div class="comment">
+                            <span class="comment-user">@alexm:</span>
+                            <span class="comment-text">That's great! I'm starting that course next week.</span>
+                        </div>
+                        <div class="comment">
+                            <span class="comment-user">@emilyr:</span>
+                            <span class="comment-text">I agree, the DOM section is excellent!</span>
+                        </div>
+                        <div class="comment-input">
+                            <input type="text" placeholder="Write a comment..." />
+                            <button>Post</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="post-card">
+                    <div class="post-header">
+                        <div class="post-user">
+                            <div class="post-avatar">👤</div>
+                            <div class="post-user-info">
+                                <span class="post-username">Michael Chen</span>
+                                <span class="post-userhandle">@michaelc</span>
+                            </div>
+                        </div>
+                        <div class="post-tags">
+                            <span class="post-tag">#Mathematics</span>
+                            <span class="post-tag">#Education</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Understanding derivatives is crucial for calculus. Here's a simple explanation with real-world examples from physics and economics. 📐</p>
+                        <div class="post-image-placeholder">📊 Graph showing derivative examples</div>
+                    </div>
+                    <div class="post-actions-bar">
+                        <button class="post-action">❤️ Like (18)</button>
+                        <button class="post-action">💬 Comment (3)</button>
+                        <button class="post-action">🔄 Share</button>
+                        <button class="post-action">🔖 Save</button>
+                    </div>
+                    <div class="post-comments">
+                        <div class="comment">
+                            <span class="comment-user">@davids:</span>
+                            <span class="comment-text">This is really helpful! Thanks for sharing!</span>
+                        </div>
+                        <div class="comment-input">
+                            <input type="text" placeholder="Write a comment..." />
+                            <button>Post</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="post-card">
+                    <div class="post-header">
+                        <div class="post-user">
+                            <div class="post-avatar">👤</div>
+                            <div class="post-user-info">
+                                <span class="post-username">Nexera Education</span>
+                                <span class="post-userhandle">@nexera_edu</span>
+                            </div>
+                        </div>
+                        <div class="post-tags">
+                            <span class="post-tag">#Science</span>
+                            <span class="post-tag">#Physics</span>
+                            <span class="post-tag">#Learning</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>New course alert! 🚀 "Quantum Physics for Beginners" is now available. Learn about superposition, entanglement, and more!</p>
+                        <div class="post-image-placeholder">🎓 Course announcement banner</div>
+                    </div>
+                    <div class="post-actions-bar">
+                        <button class="post-action">❤️ Like (45)</button>
+                        <button class="post-action">💬 Comment (12)</button>
+                        <button class="post-action">🔄 Share</button>
+                        <button class="post-action">🔖 Save</button>
+                    </div>
+                    <div class="post-comments">
+                        <div class="comment">
+                            <span class="comment-user">@physicsfan:</span>
+                            <span class="comment-text">This is amazing! Can't wait to start!</span>
+                        </div>
+                        <div class="comment">
+                            <span class="comment-user">@quantumlearner:</span>
+                            <span class="comment-text">Is this beginner-friendly?</span>
+                        </div>
+                        <div class="comment-input">
+                            <input type="text" placeholder="Write a comment..." />
+                            <button>Post</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- ===== RIGHT SIDEBAR ===== -->
+        <aside class="feed-right-sidebar">
+            <div class="search-bar">
+                <input type="text" placeholder="🔍 Search posts, users, topics..." />
+            </div>
+            <div class="recommended-section">
+                <h4>Recommended for You</h4>
+                <div class="recommended-users">
+                    <div class="recommended-user">
+                        <span>👤 Alice Brown</span>
+                        <button>Follow</button>
+                    </div>
+                    <div class="recommended-user">
+                        <span>👤 Bob Wilson</span>
+                        <button>Follow</button>
+                    </div>
+                    <div class="recommended-user">
+                        <span>👤 Carol White</span>
+                        <button>Follow</button>
+                    </div>
+                </div>
+            </div>
+            <div class="notification-preview">
+                <h4>🔔 Notifications</h4>
+                <div class="notification-item">❤️ 5 people liked your post</div>
+                <div class="notification-item">💬 3 new comments</div>
+                <div class="notification-item">👤 2 new followers</div>
+                <a href="notifications.html" class="view-all">View all</a>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+                <p class="footer-tagline">Next‑gen collaboration</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- placeholder JS -->
+    <script src="script.js"></script>
+    <script src="clerk-nav.js"></script>
+
+</body>
+</html>

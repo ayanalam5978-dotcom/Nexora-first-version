@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — Notifications</title>
+    <!-- placeholder CSS (Phase 2) -->
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="feed.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="notifications.html" class="active">🔔</a></li>
+                <li><a href="settings.html">⚙️</a></li>
+                <li><a href="index.html" class="nav-logout-btn">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="mobileMenuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== NOTIFICATIONS CONTAINER ===== -->
+    <div class="notifications-container">
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="notifications-sidebar">
+            <div class="sidebar-profile">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-name">John Doe</div>
+                <div class="profile-username">@johndoe</div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="feed.html">🏠 Feed</a></li>
+                    <li><a href="explore.html">🔎 Explore</a></li>
+                    <li><a href="courses.html">📚 My Courses</a></li>
+                    <li><a href="profile.html">👤 Profile</a></li>
+                    <li><a href="messages.html">💬 Messages</a></li>
+                    <li><a href="notifications.html" class="active">🔔 Notifications</a></li>
+                    <li><a href="settings.html">⚙️ Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-stats">
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Unread</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24</span>
+                    <span class="stat-label">Total</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ===== MAIN NOTIFICATIONS ===== -->
+        <main class="notifications-main">
+            <!-- ===== NOTIFICATIONS HEADER ===== -->
+            <div class="notifications-header">
+                <h1>🔔 Notifications</h1>
+                <div class="notifications-actions">
+                    <button class="mark-all-read-btn">✅ Mark all as read</button>
+                    <button class="clear-all-btn">🗑️ Clear all</button>
+                </div>
+            </div>
+
+            <!-- ===== NOTIFICATION FILTERS ===== -->
+            <div class="notification-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Unread</button>
+                <button class="filter-btn">Likes</button>
+                <button class="filter-btn">Comments</button>
+                <button class="filter-btn">Follows</button>
+                <button class="filter-btn">Courses</button>
+                <button class="filter-btn">Messages</button>
+                <button class="filter-btn">Achievements</button>
+            </div>
+
+            <!-- ===== NOTIFICATIONS LIST ===== -->
+            <div class="notifications-list">
+                <!-- Notification 1 - Like -->
+                <div class="notification-item unread">
+                    <div class="notification-icon">❤️</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Sarah Johnson</span>
+                            liked your post: 
+                            <span class="notification-link">"Understanding Machine Learning Basics"</span>
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">2 minutes ago</span>
+                            <span class="notification-badge">New</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 2 - Comment -->
+                <div class="notification-item unread">
+                    <div class="notification-icon">💬</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Michael Chen</span>
+                            commented on your post: 
+                            <span class="notification-link">"Great explanation! Thanks for sharing."</span>
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">15 minutes ago</span>
+                            <span class="notification-badge">New</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 3 - Follow -->
+                <div class="notification-item unread">
+                    <div class="notification-icon">👤</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Emily Rodriguez</span>
+                            started following you
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">1 hour ago</span>
+                            <span class="notification-badge">New</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 4 - Course Update -->
+                <div class="notification-item">
+                    <div class="notification-icon">📚</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-link">"JavaScript Fundamentals"</span>
+                            course has been updated with new content
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">3 hours ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 5 - Like -->
+                <div class="notification-item">
+                    <div class="notification-icon">❤️</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">David Kim</span>
+                            and <span class="notification-user">5 others</span> liked your post
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">5 hours ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 6 - Comment -->
+                <div class="notification-item">
+                    <div class="notification-icon">💬</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Priya Patel</span>
+                            replied to your comment: 
+                            <span class="notification-link">"I agree, the examples were very helpful!"</span>
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 7 - New Message -->
+                <div class="notification-item">
+                    <div class="notification-icon">💬</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Alex Morgan</span>
+                            sent you a new message: 
+                            <span class="notification-link">"Great course! 👍"</span>
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 8 - Achievement -->
+                <div class="notification-item">
+                    <div class="notification-icon">🏆</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            🎉 You earned the 
+                            <span class="notification-link">"Top Contributor"</span>
+                            achievement!
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">2 days ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 9 - Follow -->
+                <div class="notification-item">
+                    <div class="notification-icon">👤</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Anonymous User</span>
+                            started following you
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">3 days ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 10 - Course -->
+                <div class="notification-item">
+                    <div class="notification-icon">📚</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            New course available: 
+                            <span class="notification-link">"Advanced Physics"</span>
+                            recommended for you
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">4 days ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 11 - Like -->
+                <div class="notification-item">
+                    <div class="notification-icon">❤️</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Lisa Park</span>
+                            liked your comment: 
+                            <span class="notification-link">"This is a great explanation!"</span>
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">5 days ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 12 - Achievement -->
+                <div class="notification-item">
+                    <div class="notification-icon">🏅</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            🎊 You reached 
+                            <span class="notification-link">100 posts</span>
+                            milestone! Keep sharing knowledge!
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">1 week ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 13 - Message -->
+                <div class="notification-item">
+                    <div class="notification-icon">💬</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Sarah Johnson</span>
+                            sent you a message: 
+                            <span class="notification-link">"Thanks for the feedback! 😊"</span>
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">1 week ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 14 - Comment -->
+                <div class="notification-item">
+                    <div class="notification-icon">💬</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Michael Chen</span>
+                            commented: 
+                            <span class="notification-link">"I'll send you the code by tomorrow"</span>
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">2 weeks ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+
+                <!-- Notification 15 - Follow -->
+                <div class="notification-item">
+                    <div class="notification-icon">👤</div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <span class="notification-user">Emily Rodriguez</span>
+                            started following you
+                        </div>
+                        <div class="notification-meta">
+                            <span class="notification-time">2 weeks ago</span>
+                        </div>
+                    </div>
+                    <button class="notification-dismiss">✕</button>
+                </div>
+            </div>
+
+            <!-- ===== LOAD MORE ===== -->
+            <div class="load-more-container">
+                <button class="load-more-btn">Load More Notifications</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+                <p class="footer-tagline">Next‑gen collaboration</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- placeholder JS -->
+    <script src="script.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="clerk-nav.js"></script>
+
+</body>
+</html>

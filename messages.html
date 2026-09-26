@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — Messages</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="feed.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html" class="active">Messages</a></li>
+                <li><a href="notifications.html">🔔</a></li>
+                <li><a href="settings.html">⚙️</a></li>
+                <li><a href="index.html" class="nav-logout-btn">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="mobileMenuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MESSAGES CONTAINER ===== -->
+    <div class="messages-container">
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="messages-sidebar">
+            <div class="sidebar-header">
+                <h2>💬 Messages</h2>
+                <button class="new-message-btn">✏️ New</button>
+            </div>
+
+            <div class="search-users">
+                <input type="text" placeholder="🔍 Search users..." />
+            </div>
+
+            <!-- ===== CONVERSATION LIST — DYNAMIC (No Fake Users) ===== -->
+            <div class="conversation-list" id="conversationList">
+                <!-- JavaScript se real users generate karega -->
+            </div>
+        </aside>
+
+        <!-- ===== MAIN CHAT WINDOW ===== -->
+        <main class="chat-main">
+            <!-- ===== CHAT HEADER ===== -->
+            <div class="chat-header">
+                <div class="chat-user-info">
+                    <div class="chat-avatar">👤</div>
+                    <div class="chat-user-details">
+                        <span class="chat-username">Select a conversation</span>
+                        <span class="chat-user-status online">● Online</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="chat-action-btn">📞</button>
+                    <button class="chat-action-btn">📹</button>
+                    <button class="chat-action-btn">👤</button>
+                </div>
+            </div>
+
+            <!-- ===== CHAT MESSAGES ===== -->
+            <div class="chat-messages">
+                <div class="empty-state" style="text-align:center; padding:3rem; color:#666680;">
+                    <div style="font-size:3rem; margin-bottom:1rem;">💬</div>
+                    <h3 style="color:#fff; margin-bottom:0.3rem;">No messages yet</h3>
+                    <p>Select a conversation to start chatting.</p>
+                </div>
+            </div>
+
+            <!-- ===== MESSAGE INPUT ===== -->
+            <div class="chat-input-area">
+                <div class="chat-input-actions">
+                    <button class="input-action-btn">📎</button>
+                    <button class="input-action-btn">📷</button>
+                    <button class="input-action-btn">😊</button>
+                </div>
+                <input type="text" placeholder="Type a message..." class="chat-input" />
+                <button class="send-btn">Send</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+                <p class="footer-tagline">Next‑gen collaboration</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="clerk-nav.js"></script>
+</body>
+</html>

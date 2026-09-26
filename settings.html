@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — Settings</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="feed.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="notifications.html">🔔</a></li>
+                <li><a href="settings.html" class="active">⚙️</a></li>
+                <li><a href="index.html" class="nav-logout-btn">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="mobileMenuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== SETTINGS CONTAINER ===== -->
+    <div class="settings-container">
+
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="settings-sidebar">
+            <div class="sidebar-profile">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-name" id="sidebarProfileName">John Doe</div>
+                <div class="profile-username" id="sidebarProfileUsername">@johndoe</div>
+            </div>
+            <nav class="settings-nav">
+                <ul>
+                    <li><a href="#account" class="active">👤 Account</a></li>
+                    <li><a href="#profile-settings">✏️ Profile</a></li>
+                    <li><a href="#privacy">🔒 Privacy</a></li>
+                    <li><a href="#notifications-settings">🔔 Notifications</a></li>
+                    <li><a href="#appearance">🎨 Appearance</a></li>
+                    <li><a href="#security">🛡️ Security</a></li>
+                    <li><a href="#danger">⚠️ Danger Zone</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- ===== MAIN SETTINGS CONTENT ===== -->
+        <main class="settings-main">
+            <h1>⚙️ Settings</h1>
+
+            <!-- ===== ACCOUNT SETTINGS ===== -->
+            <section id="account" class="settings-section">
+                <h2>👤 Account Settings</h2>
+                <div class="settings-card">
+                    <div class="setting-group">
+                        <label>Email Address</label>
+                        <input type="email" id="settingsEmail" value="johndoe@example.com" />
+                        <button class="setting-btn" id="updateEmailBtn">Change Email</button>
+                    </div>
+                    <div class="setting-group">
+                        <label>Change Password</label>
+                        <div class="password-fields">
+                            <input type="password" id="currentPassword" placeholder="Current Password" />
+                            <input type="password" id="newPassword" placeholder="New Password" />
+                            <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" />
+                        </div>
+                        <button class="setting-btn btn-primary" id="updatePasswordBtn">Update Password</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== PROFILE SETTINGS (UPDATED with Username) ===== -->
+            <section id="profile-settings" class="settings-section">
+                <h2>✏️ Profile Settings</h2>
+                <div class="settings-card">
+
+                    <!-- Display Name -->
+                    <div class="setting-group">
+                        <label>Display Name</label>
+                        <input type="text" id="settingsDisplayName" value="John Doe" />
+                        <button class="setting-btn" id="updateNameBtn">Update</button>
+                    </div>
+
+                    <!-- ⭐ NEW: Username -->
+                    <div class="setting-group">
+                        <label>Username</label>
+                        <input type="text" id="settingsUsername" value="johndoe" />
+                        <button class="setting-btn" id="updateUsernameBtn">Update Username</button>
+                        <span class="setting-desc" style="color:#6a6a8e;font-size:0.8rem;display:block;margin-top:0.3rem;">
+                            Username must be unique and at least 3 characters.
+                        </span>
+                    </div>
+
+                    <!-- Bio -->
+                    <div class="setting-group">
+                        <label>Bio</label>
+                        <textarea rows="4" id="settingsBio" placeholder="Tell us about yourself...">Full Stack Developer | Educator | Passionate about teaching and learning new technologies. 🚀</textarea>
+                        <button class="setting-btn" id="updateBioBtn">Update Bio</button>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="setting-group">
+                        <label>Location</label>
+                        <input type="text" id="settingsLocation" value="New York, USA" />
+                        <button class="setting-btn" id="updateLocationBtn">Update</button>
+                    </div>
+
+                    <!-- Profile Picture -->
+                    <div class="setting-group">
+                        <label>Profile Picture</label>
+                        <div class="profile-picture-upload">
+                            <div class="current-picture" id="settingsAvatar">👤</div>
+                            <div class="upload-actions">
+                                <button class="setting-btn" id="uploadAvatarBtn">Upload New</button>
+                                <button class="setting-btn btn-remove" id="removeAvatarBtn">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save All -->
+                    <button class="setting-btn btn-primary" id="saveAllSettingsBtn">💾 Save All Changes</button>
+
+                </div>
+            </section>
+
+            <!-- ===== PRIVACY SETTINGS ===== -->
+            <section id="privacy" class="settings-section">
+                <h2>🔒 Privacy Settings</h2>
+                <div class="settings-card">
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Account Visibility</span>
+                            <span class="toggle-desc">Make your profile visible to everyone</span>
+                        </div>
+                        <select id="privacyVisibility">
+                            <option>Public</option>
+                            <option selected>Private</option>
+                            <option>Only Followers</option>
+                        </select>
+                    </div>
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Who can message you</span>
+                            <span class="toggle-desc">Control who can send you messages</span>
+                        </div>
+                        <select id="privacyMessages">
+                            <option>Everyone</option>
+                            <option selected>Only Followers</option>
+                            <option>No One</option>
+                        </select>
+                    </div>
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Who can follow you</span>
+                            <span class="toggle-desc">Control who can follow your profile</span>
+                        </div>
+                        <select id="privacyFollow">
+                            <option selected>Everyone</option>
+                            <option>Only Verified Users</option>
+                            <option>No One</option>
+                        </select>
+                    </div>
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Show online status</span>
+                            <span class="toggle-desc">Display your online/offline status to others</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="privacyOnlineStatus" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <button class="setting-btn btn-primary" id="savePrivacyBtn">Save Privacy Settings</button>
+                </div>
+            </section>
+
+            <!-- ===== NOTIFICATION SETTINGS ===== -->
+            <section id="notifications-settings" class="settings-section">
+                <h2>🔔 Notification Settings</h2>
+                <div class="settings-card">
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Email Notifications</span>
+                            <span class="toggle-desc">Receive notifications via email</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="notifEmail" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Social Notifications</span>
+                            <span class="toggle-desc">Get notified about likes, comments, and follows</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="notifSocial" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Course Notifications</span>
+                            <span class="toggle-desc">Get notified about course updates and recommendations</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="notifCourses" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Message Notifications</span>
+                            <span class="toggle-desc">Get notified about new messages</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="notifMessages" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <button class="setting-btn btn-primary" id="saveNotifBtn">Save Notification Settings</button>
+                </div>
+            </section>
+
+            <!-- ===== APPEARANCE SETTINGS ===== -->
+            <section id="appearance" class="settings-section">
+                <h2>🎨 Appearance</h2>
+                <div class="settings-card">
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Dark Mode</span>
+                            <span class="toggle-desc">Switch between light and dark theme</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="themeToggle" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>Theme Color</label>
+                        <div class="theme-colors">
+                            <button class="color-option active" style="background: #4A90D9;" data-color="#4A90D9"></button>
+                            <button class="color-option" style="background: #28A745;" data-color="#28A745"></button>
+                            <button class="color-option" style="background: #DC3545;" data-color="#DC3545"></button>
+                            <button class="color-option" style="background: #FFC107;" data-color="#FFC107"></button>
+                            <button class="color-option" style="background: #6F42C1;" data-color="#6F42C1"></button>
+                            <button class="color-option" style="background: #FD7E14;" data-color="#FD7E14"></button>
+                        </div>
+                    </div>
+                    <div class="setting-group">
+                        <label>Font Size</label>
+                        <select id="fontSize">
+                            <option>Small</option>
+                            <option selected>Medium</option>
+                            <option>Large</option>
+                            <option>Extra Large</option>
+                        </select>
+                    </div>
+                    <button class="setting-btn btn-primary" id="saveAppearanceBtn">Save Appearance Settings</button>
+                </div>
+            </section>
+
+            <!-- ===== SECURITY SETTINGS ===== -->
+            <section id="security" class="settings-section">
+                <h2>🛡️ Security</h2>
+                <div class="settings-card">
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Two-Factor Authentication (2FA)</span>
+                            <span class="toggle-desc">Add an extra layer of security to your account</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="twoFactorAuth" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-group toggle-group">
+                        <div class="toggle-label">
+                            <span>Login Alerts</span>
+                            <span class="toggle-desc">Get notified when someone logs into your account</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="loginAlerts" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>Active Sessions</label>
+                        <div class="active-sessions" id="activeSessions">
+                            <div class="session-item">
+                                <span>🌐 Chrome on Windows</span>
+                                <span class="session-time">Active now</span>
+                                <button class="setting-btn btn-remove">Terminate</button>
+                            </div>
+                            <div class="session-item">
+                                <span>📱 Mobile App</span>
+                                <span class="session-time">2 hours ago</span>
+                                <button class="setting-btn btn-remove">Terminate</button>
+                            </div>
+                            <div class="session-item">
+                                <span>🌐 Firefox on Mac</span>
+                                <span class="session-time">1 day ago</span>
+                                <button class="setting-btn btn-remove">Terminate</button>
+                            </div>
+                        </div>
+                        <button class="setting-btn" id="terminateAllSessions">Terminate All Sessions</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== DANGER ZONE ===== -->
+            <section id="danger" class="settings-section">
+                <h2>⚠️ Danger Zone</h2>
+                <div class="settings-card danger-card">
+                    <div class="setting-group">
+                        <label>Logout</label>
+                        <p class="danger-desc">Sign out of your account on all devices</p>
+                        <a href="index.html" class="setting-btn btn-danger" id="logoutBtn">Logout</a>
+                    </div>
+                    <div class="setting-group">
+                        <label>Delete Account</label>
+                        <p class="danger-desc">Permanently delete your account and all data. This action cannot be undone.</p>
+                        <button class="setting-btn btn-danger" id="deleteAccountBtn">Delete Account</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+                <p class="footer-tagline">Next‑gen collaboration</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="clerk-nav.js"></script>
+</body>
+</html>

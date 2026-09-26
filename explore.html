@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — Explore</title>
+    <!-- placeholder CSS (Phase 2) -->
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="feed.html">Home</a></li>
+                <li><a href="explore.html" class="active">Explore</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="notifications.html">🔔</a></li>
+                <li><a href="settings.html">⚙️</a></li>
+                <li><a href="index.html" class="nav-logout-btn">Logout</a></li>
+            </ul>
+            <div class="hamburger" id="mobileMenuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== EXPLORE CONTAINER ===== -->
+    <div class="explore-container">
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="explore-sidebar">
+            <div class="sidebar-profile">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-name">John Doe</div>
+                <div class="profile-username">@johndoe</div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="feed.html">🏠 Feed</a></li>
+                    <li><a href="explore.html" class="active">🔎 Explore</a></li>
+                    <li><a href="courses.html">📚 My Courses</a></li>
+                    <li><a href="profile.html">👤 Profile</a></li>
+                    <li><a href="messages.html">💬 Messages</a></li>
+                    <li><a href="notifications.html">🔔 Notifications</a></li>
+                    <li><a href="settings.html">⚙️ Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-filters">
+                <h4>Topic Filters</h4>
+                <div class="filter-list">
+                    <label><input type="checkbox" checked /> Mathematics</label>
+                    <label><input type="checkbox" /> Science</label>
+                    <label><input type="checkbox" checked /> Programming</label>
+                    <label><input type="checkbox" /> English</label>
+                    <label><input type="checkbox" /> History</label>
+                    <label><input type="checkbox" /> Art</label>
+                    <label><input type="checkbox" /> Music</label>
+                    <label><input type="checkbox" /> Physics</label>
+                    <label><input type="checkbox" /> Chemistry</label>
+                    <label><input type="checkbox" /> Biology</label>
+                </div>
+                <h4>Difficulty Filters</h4>
+                <div class="filter-list">
+                    <label><input type="checkbox" checked /> Beginner</label>
+                    <label><input type="checkbox" /> Intermediate</label>
+                    <label><input type="checkbox" /> Advanced</label>
+                </div>
+                <button class="filter-apply-btn">Apply Filters</button>
+            </div>
+        </aside>
+
+        <!-- ===== MAIN EXPLORE CONTENT ===== -->
+        <main class="explore-main">
+            <!-- ===== SEARCH BAR ===== -->
+            <div class="explore-search">
+                <input type="text" placeholder="🔍 Search for courses, topics, users, content..." />
+                <button class="search-btn">Search</button>
+            </div>
+
+            <!-- ===== CATEGORIES ===== -->
+            <section class="categories-section">
+                <h2>Subject Categories</h2>
+                <div class="categories-grid">
+                    <div class="category-card">📐 Mathematics</div>
+                    <div class="category-card">🔬 Science</div>
+                    <div class="category-card">💻 Programming</div>
+                    <div class="category-card">📖 English</div>
+                    <div class="category-card">🏛️ History</div>
+                    <div class="category-card">🎨 Art</div>
+                    <div class="category-card">🎵 Music</div>
+                    <div class="category-card">⚛️ Physics</div>
+                    <div class="category-card">🧪 Chemistry</div>
+                    <div class="category-card">🧬 Biology</div>
+                    <div class="category-card">🤖 AI</div>
+                    <div class="category-card">🌐 Web Dev</div>
+                </div>
+            </section>
+
+            <!-- ===== POPULAR TOPICS ===== -->
+            <section class="popular-topics">
+                <h2>🔥 Popular Topics</h2>
+                <div class="topics-list">
+                    <span class="topic-tag">#JavaScript</span>
+                    <span class="topic-tag">#React</span>
+                    <span class="topic-tag">#Python</span>
+                    <span class="topic-tag">#MachineLearning</span>
+                    <span class="topic-tag">#DataScience</span>
+                    <span class="topic-tag">#Calculus</span>
+                    <span class="topic-tag">#Physics</span>
+                    <span class="topic-tag">#WebDevelopment</span>
+                    <span class="topic-tag">#AI</span>
+                    <span class="topic-tag">#Blockchain</span>
+                    <span class="topic-tag">#Cybersecurity</span>
+                    <span class="topic-tag">#CloudComputing</span>
+                </div>
+            </section>
+
+            <!-- ===== TRENDING EDUCATIONAL POSTS ===== -->
+            <section class="trending-posts">
+                <h2>📈 Trending Educational Posts</h2>
+                <div class="trending-grid">
+                    <article class="trending-card">
+                        <div class="trending-tag">🔥 Trending</div>
+                        <h3>Understanding Machine Learning Basics</h3>
+                        <p>Learn the fundamentals of ML with practical examples...</p>
+                        <div class="trending-meta">
+                            <span>👤 Sarah Johnson</span>
+                            <span>❤️ 234 likes</span>
+                            <span>💬 45 comments</span>
+                        </div>
+                    </article>
+                    <article class="trending-card">
+                        <div class="trending-tag">📈 Rising</div>
+                        <h3>JavaScript Async/Await Explained</h3>
+                        <p>Master asynchronous programming in JavaScript...</p>
+                        <div class="trending-meta">
+                            <span>👤 Michael Chen</span>
+                            <span>❤️ 189 likes</span>
+                            <span>💬 32 comments</span>
+                        </div>
+                    </article>
+                    <article class="trending-card">
+                        <div class="trending-tag">💡 Popular</div>
+                        <h3>Calculus in Real Life Applications</h3>
+                        <p>Discover how calculus is used in economics, physics, and engineering...</p>
+                        <div class="trending-meta">
+                            <span>👤 Emily Rodriguez</span>
+                            <span>❤️ 156 likes</span>
+                            <span>💬 28 comments</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ===== RECOMMENDED CONTENT ===== -->
+            <section class="recommended-content">
+                <h2>⭐ Recommended for You</h2>
+                <div class="recommended-grid">
+                    <div class="recommended-card">
+                        <div class="rec-icon">📚</div>
+                        <div class="rec-info">
+                            <h4>Python for Data Science</h4>
+                            <p>Learn Python libraries for data analysis</p>
+                            <span class="rec-difficulty">Beginner</span>
+                            <button class="rec-btn">Start Learning</button>
+                        </div>
+                    </div>
+                    <div class="recommended-card">
+                        <div class="rec-icon">🎓</div>
+                        <div class="rec-info">
+                            <h4>React Hooks Masterclass</h4>
+                            <p>Complete guide to React Hooks</p>
+                            <span class="rec-difficulty">Intermediate</span>
+                            <button class="rec-btn">Start Learning</button>
+                        </div>
+                    </div>
+                    <div class="recommended-card">
+                        <div class="rec-icon">🧪</div>
+                        <div class="rec-info">
+                            <h4>Chemistry Lab Experiments</h4>
+                            <p>Virtual chemistry lab experiments</p>
+                            <span class="rec-difficulty">Advanced</span>
+                            <button class="rec-btn">Start Learning</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== RECOMMENDED USERS ===== -->
+            <section class="recommended-users">
+                <h2>👥 Recommended Users</h2>
+                <div class="users-grid">
+                    <div class="user-card">
+                        <div class="user-avatar-lg">👤</div>
+                        <div class="user-info">
+                            <h4>Alex Morgan</h4>
+                            <p>@alexmorgan</p>
+                            <span>Data Scientist | AI Enthusiast</span>
+                            <button class="follow-btn">Follow</button>
+                        </div>
+                    </div>
+                    <div class="user-card">
+                        <div class="user-avatar-lg">👤</div>
+                        <div class="user-info">
+                            <h4>Priya Patel</h4>
+                            <p>@priyap</p>
+                            <span>Full Stack Developer | Teacher</span>
+                            <button class="follow-btn">Follow</button>
+                        </div>
+                    </div>
+                    <div class="user-card">
+                        <div class="user-avatar-lg">👤</div>
+                        <div class="user-info">
+                            <h4>David Kim</h4>
+                            <p>@davidk</p>
+                            <span>Physics Teacher | Researcher</span>
+                            <button class="follow-btn">Follow</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== RECOMMENDED COURSES ===== -->
+            <section class="recommended-courses">
+                <h2>📖 Recommended Courses</h2>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <h4>Web Development Bootcamp</h4>
+                        <p>Complete web development from scratch</p>
+                        <div class="course-meta">
+                            <span>📚 45 lessons</span>
+                            <span>⏱️ 30 hours</span>
+                            <span>⭐ 4.8</span>
+                        </div>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                    <div class="course-card">
+                        <h4>Data Science Fundamentals</h4>
+                        <p>Introduction to data science and analytics</p>
+                        <div class="course-meta">
+                            <span>📚 30 lessons</span>
+                            <span>⏱️ 20 hours</span>
+                            <span>⭐ 4.9</span>
+                        </div>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                    <div class="course-card">
+                        <h4>Advanced Physics</h4>
+                        <p>Quantum mechanics and relativity</p>
+                        <div class="course-meta">
+                            <span>📚 25 lessons</span>
+                            <span>⏱️ 18 hours</span>
+                            <span>⭐ 4.7</span>
+                        </div>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== RECENTLY ADDED ===== -->
+            <section class="recently-added">
+                <h2>🆕 Recently Added Content</h2>
+                <div class="recent-grid">
+                    <div class="recent-item">
+                        <span class="recent-badge">New</span>
+                        <h4>React Native for Mobile Apps</h4>
+                        <p>Build cross-platform mobile apps</p>
+                        <span class="recent-date">Added 2 hours ago</span>
+                    </div>
+                    <div class="recent-item">
+                        <span class="recent-badge">New</span>
+                        <h4>Organic Chemistry Notes</h4>
+                        <p>Complete organic chemistry guide</p>
+                        <span class="recent-date">Added 5 hours ago</span>
+                    </div>
+                    <div class="recent-item">
+                        <span class="recent-badge">Updated</span>
+                        <h4>Machine Learning Algorithms</h4>
+                        <p>Updated with new algorithms</p>
+                        <span class="recent-date">Updated 1 day ago</span>
+                    </div>
+                    <div class="recent-item">
+                        <span class="recent-badge">New</span>
+                        <h4>English Grammar Mastery</h4>
+                        <p>Complete grammar course</p>
+                        <span class="recent-date">Added 3 days ago</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ===== RIGHT SIDEBAR ===== -->
+        <aside class="explore-right-sidebar">
+            <div class="trending-topics">
+                <h4>🔥 Trending Now</h4>
+                <div class="trending-item">#WebDev</div>
+                <div class="trending-item">#MachineLearning</div>
+                <div class="trending-item">#Calculus</div>
+                <div class="trending-item">#Physics</div>
+                <div class="trending-item">#AI</div>
+                <div class="trending-item">#JavaScript</div>
+            </div>
+            <div class="top-contributors">
+                <h4>🏆 Top Contributors</h4>
+                <div class="contributor-item">👤 Sarah Johnson - 45 posts</div>
+                <div class="contributor-item">👤 Michael Chen - 38 posts</div>
+                <div class="contributor-item">👤 Emily Rodriguez - 32 posts</div>
+                <div class="contributor-item">👤 David Kim - 28 posts</div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="brand-name">Nexera</span>
+                <p class="footer-tagline">Next‑gen collaboration</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- placeholder JS -->
+    <script src="script.js"></script>
+    <script src="js/explore.js"></script>
+    <script src="clerk-nav.js"></script>
+</body>
+</html>

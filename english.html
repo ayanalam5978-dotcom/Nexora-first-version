@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EnglishForge AI — Master English with AI</title>
+<style>
+/* ============================================================
+   ENGLISHFORGE AI — FULL STYLESHEET
+   ============================================================ */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg:#f5f7fb; --bg-2:#ffffff; --text:#1a1a2e; --text-soft:#555;
+  --card:#ffffff; --border:#e4e7ef;
+  --primary:#6c5ce7; --primary-2:#8e7bff; --accent:#00cec9;
+  --success:#00b894; --danger:#d63031; --warning:#fdcb6e; --info:#0984e3;
+  --shadow:0 8px 24px rgba(20,20,60,.08);
+  --radius:16px; --radius-sm:10px;
+  --font:'Segoe UI',system-ui,-apple-system,sans-serif;
+}
+body.dark {
+  --bg:#0f0f1a; --bg-2:#16162a; --text:#f1f1f8; --text-soft:#b0b0c5;
+  --card:#1c1c33; --border:#2a2a45; --shadow:0 8px 24px rgba(0,0,0,.4);
+}
+body {
+  font-family:var(--font); background:var(--bg); color:var(--text);
+  transition:background .3s,color .3s; min-height:100vh; line-height:1.6;
+}
+
+/* Layout */
+.app-layout { display:flex; min-height:100vh; }
+
+.sidebar {
+  width:260px; background:var(--bg-2); border-right:1px solid var(--border);
+  padding:1.5rem 1rem; display:flex; flex-direction:column; gap:.35rem;
+  position:fixed; top:0; left:0; height:100vh; overflow-y:auto;
+  transition:transform .3s; z-index:200;
+}
+.sidebar::-webkit-scrollbar { width:6px; }
+.sidebar::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+.sidebar .brand {
+  font-size:1.25rem; font-weight:800; margin-bottom:1.25rem;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  display:flex; align-items:center; gap:.5rem;
+}
+.nav-item {
+  padding:.7rem 1rem; border-radius:var(--radius-sm); cursor:pointer;
+  display:flex; align-items:center; gap:.75rem; color:var(--text-soft);
+  font-weight:500; transition:all .2s; border:none; background:transparent;
+  width:100%; text-align:left; font-size:.92rem; font-family:var(--font);
+}
+.nav-item:hover { background:rgba(108,92,231,.1); color:var(--primary); }
+.nav-item.active {
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff; box-shadow:0 4px 12px rgba(108,92,231,.4);
+}
+.main {
+  flex:1; margin-left:260px; padding:2rem;
+  max-width:calc(100% - 260px);
+}
+
+/* Topbar */
+.topbar {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:2rem; flex-wrap:wrap; gap:1rem;
+}
+.topbar h1 { font-size:1.8rem; font-weight:700; }
+.topbar .actions { display:flex; gap:.75rem; align-items:center; }
+.icon-btn {
+  background:var(--card); border:1px solid var(--border);
+  width:42px; height:42px; border-radius:50%; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; transition:all .2s; color:var(--text); position:relative;
+}
+.icon-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow); }
+.icon-btn .badge-dot {
+  position:absolute; top:8px; right:8px; width:8px; height:8px;
+  background:var(--danger); border-radius:50%;
+}
+
+/* Pages */
+.page { display:none; animation:fadeIn .4s ease; }
+.page.active { display:block; }
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(10px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* Cards */
+.card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:1.5rem;
+  box-shadow:var(--shadow); transition:transform .2s;
+}
+.card:hover { transform:translateY(-3px); }
+.card h3 { margin-bottom:.75rem; font-size:1.1rem; }
+
+/* Buttons */
+.btn {
+  padding:.7rem 1.4rem; border-radius:30px; border:none; cursor:pointer;
+  font-weight:600; font-size:.95rem; font-family:var(--font);
+  transition:all .2s; display:inline-flex; align-items:center;
+  gap:.5rem; justify-content:center;
+}
+.btn-primary {
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff; box-shadow:0 4px 14px rgba(108,92,231,.4);
+}
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(108,92,231,.5); }
+.btn-secondary { background:var(--card); color:var(--text); border:1px solid var(--border); }
+.btn-secondary:hover { background:var(--bg); }
+.btn-success { background:var(--success); color:#fff; }
+.btn-danger { background:var(--danger); color:#fff; }
+.btn-sm { padding:.45rem .9rem; font-size:.85rem; }
+
+/* Hero */
+.hero {
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff; padding:4rem 2rem; border-radius:var(--radius);
+  margin-bottom:2rem; text-align:center; position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
+  background:radial-gradient(circle,rgba(255,255,255,.15) 0%,transparent 60%);
+  animation:pulse 8s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform:scale(1); opacity:.6; }
+  50% { transform:scale(1.2); opacity:.3; }
+}
+.hero h1 { font-size:2.8rem; margin-bottom:1rem; position:relative; z-index:1; }
+.hero p { font-size:1.15rem; margin-bottom:2rem; opacity:.95; position:relative; z-index:1; }
+.hero .actions {
+  display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+  position:relative; z-index:1;
+}
+
+/* Grids */
+.grid { display:grid; gap:1.25rem; }
+.grid-2 { grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+.grid-3 { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+.grid-4 { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+
+/* Progress */
+.progress-bar {
+  height:10px; background:var(--border); border-radius:10px;
+  overflow:hidden; margin-top:.5rem;
+}
+.progress-fill {
+  height:100%; background:linear-gradient(90deg,var(--primary),var(--accent));
+  border-radius:10px; transition:width 1s ease;
+}
+.stat-value {
+  font-size:1.8rem; font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.stat-label { font-size:.85rem; color:var(--text-soft); margin-top:.25rem; }
+
+/* Badges */
+.level-badge {
+  display:inline-block; padding:.3rem .9rem; border-radius:20px;
+  font-size:.8rem; font-weight:700;
+  background:rgba(108,92,231,.15); color:var(--primary);
+}
+.badge {
+  display:inline-block; padding:.2rem .7rem; border-radius:12px;
+  font-size:.75rem; font-weight:600;
+}
+.badge-success { background:rgba(0,184,148,.15); color:var(--success); }
+.badge-warning { background:rgba(253,203,110,.25); color:#b8860b; }
+.badge-danger { background:rgba(214,48,49,.15); color:var(--danger); }
+.badge-info { background:rgba(9,132,227,.15); color:var(--info); }
+
+/* Level cards */
+.level-card {
+  background:var(--card); border:2px solid var(--border);
+  border-radius:var(--radius); padding:1.5rem; cursor:pointer;
+  transition:all .25s; text-align:center;
+}
+.level-card:hover {
+  border-color:var(--primary); transform:translateY(-5px);
+  box-shadow:0 12px 28px rgba(108,92,231,.2);
+}
+.level-card .code {
+  font-size:2.2rem; font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.level-card .name { font-weight:600; margin-top:.5rem; }
+.level-card .desc { font-size:.85rem; color:var(--text-soft); margin-top:.25rem; }
+
+/* Chat */
+.chat-container {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); display:flex; flex-direction:column;
+  height:600px; overflow:hidden;
+}
+.chat-header {
+  padding:1rem 1.25rem; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; gap:.75rem;
+}
+.chat-header .status {
+  width:10px; height:10px; background:var(--success);
+  border-radius:50%; box-shadow:0 0 8px var(--success);
+}
+.chat-messages {
+  flex:1; padding:1.25rem; overflow-y:auto;
+  display:flex; flex-direction:column; gap:1rem;
+}
+.chat-messages::-webkit-scrollbar { width:6px; }
+.chat-messages::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+.msg {
+  max-width:78%; padding:.85rem 1.1rem; border-radius:16px;
+  line-height:1.5; font-size:.95rem; animation:msgIn .3s ease;
+}
+@keyframes msgIn {
+  from { opacity:0; transform:translateY(8px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.msg.user {
+  align-self:flex-end;
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff; border-bottom-right-radius:4px;
+}
+.msg.ai {
+  align-self:flex-start; background:var(--bg);
+  border:1px solid var(--border); border-bottom-left-radius:4px;
+}
+.msg.typing { display:flex; gap:4px; align-items:center; }
+.msg.typing span {
+  width:8px; height:8px; background:var(--primary);
+  border-radius:50%; animation:bounce 1.4s infinite;
+}
+.msg.typing span:nth-child(2) { animation-delay:.2s; }
+.msg.typing span:nth-child(3) { animation-delay:.4s; }
+@keyframes bounce {
+  0%,60%,100% { transform:translateY(0); opacity:.4; }
+  30% { transform:translateY(-8px); opacity:1; }
+}
+.chat-input-area {
+  display:flex; padding:1rem; border-top:1px solid var(--border);
+  gap:.75rem; background:var(--bg-2);
+}
+.chat-input-area input {
+  flex:1; padding:.75rem 1rem; border-radius:30px;
+  border:1px solid var(--border); background:var(--bg);
+  color:var(--text); font-size:.95rem; font-family:var(--font); outline:none;
+}
+.chat-input-area input:focus { border-color:var(--primary); }
+.chat-input-area button {
+  padding:.75rem 1.25rem; border-radius:30px; border:none;
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff; cursor:pointer; font-weight:600;
+}
+
+/* Suggested prompts */
+.suggested {
+  display:flex; gap:.5rem; flex-wrap:wrap; padding:.75rem 1rem 0;
+  border-top:1px solid var(--border); background:var(--bg-2);
+}
+.chip {
+  padding:.35rem .8rem; background:var(--bg); border:1px solid var(--border);
+  border-radius:20px; font-size:.8rem; cursor:pointer;
+  color:var(--text-soft); transition:all .2s;
+}
+.chip:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+
+/* Speaking */
+.mic-area { text-align:center; padding:2.5rem 1rem; }
+.mic-btn {
+  width:120px; height:120px; border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  border:none; cursor:pointer; font-size:3rem; color:#fff;
+  transition:all .3s; box-shadow:0 8px 30px rgba(108,92,231,.4);
+}
+.mic-btn:hover { transform:scale(1.05); }
+.mic-btn.listening {
+  animation:micPulse 1.5s infinite;
+  background:linear-gradient(135deg,var(--danger),#ff7675);
+}
+@keyframes micPulse {
+  0% { box-shadow:0 0 0 0 rgba(214,48,49,.6); }
+  70% { box-shadow:0 0 0 30px rgba(214,48,49,0); }
+  100% { box-shadow:0 0 0 0 rgba(214,48,49,0); }
+}
+.timer {
+  font-size:2rem; font-weight:800; color:var(--primary);
+  margin:1rem 0; font-variant-numeric:tabular-nums;
+}
+
+/* Feedback grids */
+.feedback-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1rem; margin-top:1.5rem;
+}
+.feedback-item {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:1rem; text-align:center;
+}
+.feedback-item .val { font-size:1.5rem; font-weight:800; color:var(--primary); }
+
+/* Vocabulary flashcard */
+.flashcard {
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff; padding:3rem 2rem; border-radius:var(--radius);
+  text-align:center; cursor:pointer; min-height:220px;
+  display:flex; flex-direction:column; justify-content:center;
+  align-items:center; box-shadow:0 12px 30px rgba(108,92,231,.3);
+  transition:transform .3s;
+}
+.flashcard:hover { transform:translateY(-4px); }
+.flashcard .word { font-size:2rem; font-weight:800; margin-bottom:.5rem; }
+.flashcard .hint { opacity:.8; font-size:.85rem; }
+
+/* Quiz */
+.quiz-option {
+  width:100%; padding:1rem 1.25rem; margin-bottom:.75rem;
+  background:var(--bg); border:2px solid var(--border);
+  border-radius:var(--radius-sm); text-align:left; cursor:pointer;
+  color:var(--text); font-size:.95rem; font-family:var(--font);
+  transition:all .2s;
+}
+.quiz-option:hover:not(:disabled) {
+  border-color:var(--primary); background:rgba(108,92,231,.08);
+}
+.quiz-option.correct { background:var(--success); color:#fff; border-color:var(--success); }
+.quiz-option.wrong { background:var(--danger); color:#fff; border-color:var(--danger); }
+
+/* Auth */
+.auth-box {
+  max-width:420px; margin:4rem auto; background:var(--card);
+  padding:2.5rem; border-radius:var(--radius);
+  box-shadow:var(--shadow); border:1px solid var(--border);
+}
+.auth-box h2 { text-align:center; margin-bottom:1.5rem; }
+.input-group { margin-bottom:1rem; }
+.input-group label {
+  display:block; margin-bottom:.4rem; font-size:.9rem;
+  font-weight:500; color:var(--text-soft);
+}
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width:100%; padding:.75rem 1rem; border-radius:var(--radius-sm);
+  border:1px solid var(--border); background:var(--bg);
+  color:var(--text); font-size:.95rem; font-family:var(--font); outline:none;
+  transition:border .2s;
+}
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus { border-color:var(--primary); }
+.input-group textarea { resize:vertical; min-height:180px; line-height:1.6; }
+.auth-switch { text-align:center; margin-top:1rem; font-size:.9rem; color:var(--text-soft); }
+.auth-switch a { color:var(--primary); cursor:pointer; font-weight:600; text-decoration:none; }
+
+/* Article */
+.article {
+  background:var(--card); border:1px solid var(--border);
+  padding:1.75rem; border-radius:var(--radius);
+  line-height:1.8; font-size:1rem; margin-bottom:1.5rem;
+}
+.article mark {
+  background:rgba(253,203,110,.5); padding:.1rem .3rem;
+  border-radius:4px; cursor:pointer; color:inherit;
+}
+
+/* Audio player */
+.audio-player {
+  background:var(--card); border:1px solid var(--border);
+  padding:2rem; border-radius:var(--radius); text-align:center;
+}
+.audio-wave {
+  display:flex; justify-content:center; align-items:flex-end;
+  gap:4px; height:60px; margin:1.5rem 0;
+}
+.audio-wave span {
+  width:5px; background:linear-gradient(180deg,var(--primary),var(--accent));
+  border-radius:3px; height:20%;
+}
+.audio-wave.playing span { animation:wave 1s ease-in-out infinite; }
+.audio-wave span:nth-child(2n) { animation-delay:.1s; }
+.audio-wave span:nth-child(3n) { animation-delay:.2s; }
+.audio-wave span:nth-child(5n) { animation-delay:.3s; }
+@keyframes wave {
+  0%,100% { height:20%; }
+  50% { height:100%; }
+}
+
+/* Test hero */
+.test-hero {
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff; padding:2.5rem; border-radius:var(--radius);
+  text-align:center; margin-bottom:2rem;
+}
+.test-hero h2 { font-size:2rem; margin-bottom:.5rem; }
+
+/* Toast */
+.toast-container {
+  position:fixed; top:1.5rem; right:1.5rem; z-index:9999;
+  display:flex; flex-direction:column; gap:.5rem;
+}
+.toast {
+  background:var(--card); color:var(--text);
+  border:1px solid var(--border); border-left:4px solid var(--primary);
+  padding:.85rem 1.25rem; border-radius:var(--radius-sm);
+  box-shadow:var(--shadow); animation:toastIn .3s ease;
+  min-width:240px; font-size:.9rem;
+}
+.toast.success { border-left-color:var(--success); }
+.toast.error { border-left-color:var(--danger); }
+.toast.info { border-left-color:var(--info); }
+@keyframes toastIn {
+  from { opacity:0; transform:translateX(60px); }
+  to { opacity:1; transform:translateX(0); }
+}
+
+/* Modal */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.5);
+  display:flex; align-items:center; justify-content:center;
+  z-index:500; padding:1rem; animation:fadeIn .2s;
+}
+.modal {
+  background:var(--card); border-radius:var(--radius);
+  padding:2rem; max-width:480px; width:100%;
+  border:1px solid var(--border); box-shadow:var(--shadow);
+}
+
+/* Empty state */
+.empty-state {
+  text-align:center; padding:3rem 1rem; color:var(--text-soft);
+}
+.empty-state .icon { font-size:3rem; margin-bottom:.75rem; opacity:.5; }
+
+/* Skeleton loading */
+.skeleton {
+  background:linear-gradient(90deg,var(--border) 25%,var(--bg) 50%,var(--border) 75%);
+  background-size:200% 100%;
+  animation:loading 1.5s infinite; border-radius:8px;
+}
+@keyframes loading {
+  0% { background-position:200% 0; }
+  100% { background-position:-200% 0; }
+}
+
+/* Activity list */
+.activity-item {
+  display:flex; align-items:center; gap:.75rem;
+  padding:.75rem; border-bottom:1px solid var(--border);
+}
+.activity-item:last-child { border-bottom:none; }
+.activity-item .icon {
+  width:36px; height:36px; border-radius:50%;
+  background:rgba(108,92,231,.15); color:var(--primary);
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* Mobile */
+.menu-toggle {
+  display:none; position:fixed; top:1rem; left:1rem; z-index:300;
+  background:var(--primary); color:#fff; border:none;
+  width:44px; height:44px; border-radius:12px; cursor:pointer;
+  font-size:1.3rem; box-shadow:0 4px 12px rgba(108,92,231,.4);
+}
+@media (max-width:900px) {
+  .sidebar { transform:translateX(-100%); }
+  .sidebar.open { transform:translateX(0); }
+  .main { margin-left:0; max-width:100%; padding:5rem 1rem 2rem; }
+  .menu-toggle { display:flex; align-items:center; justify-content:center; }
+  .hero h1 { font-size:2rem; }
+  .hero { padding:3rem 1.5rem; }
+  .topbar h1 { font-size:1.4rem; }
+}
+
+/* Utility */
+.text-center { text-align:center; }
+.mb-1 { margin-bottom:.5rem; } .mb-2 { margin-bottom:1rem; }
+.mb-3 { margin-bottom:1.5rem; } .mb-4 { margin-bottom:2rem; }
+.mt-1 { margin-top:.5rem; } .mt-2 { margin-top:1rem; } .mt-3 { margin-top:1.5rem; }
+.flex { display:flex; }
+.flex-between { display:flex; justify-content:space-between; align-items:center; }
+.flex-center { display:flex; justify-content:center; align-items:center; }
+.gap-1 { gap:.5rem; } .gap-2 { gap:1rem; } .gap-3 { gap:1.5rem; }
+.flex-wrap { flex-wrap:wrap; }
+.hidden { display:none !important; }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle">☰</button>
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="app-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">🤖 EnglishForge AI</div>
+    <button class="nav-item active" data-page="home">🏠 <span>Home</span></button>
+    <button class="nav-item" data-page="dashboard">📊 <span>Dashboard</span></button>
+    <button class="nav-item" data-page="learn">📚 <span>Learn</span></button>
+    <button class="nav-item" data-page="grammar">📘 <span>Grammar</span></button>
+    <button class="nav-item" data-page="vocabulary">📝 <span>Vocabulary</span></button>
+    <button class="nav-item" data-page="ai-tutor">🤖 <span>AI Tutor</span></button>
+    <button class="nav-item" data-page="speaking">🗣️ <span>Speaking</span></button>
+    <button class="nav-item" data-page="listening">🎧 <span>Listening</span></button>
+    <button class="nav-item" data-page="reading">📖 <span>Reading</span></button>
+    <button class="nav-item" data-page="writing">✍️ <span>Writing</span></button>
+    <button class="nav-item" data-page="tests">🧪 <span>Tests</span></button>
+    <button class="nav-item" data-page="progress">📈 <span>Progress</span></button>
+    <button class="nav-item" data-page="profile">👤 <span>Profile</span></button>
+    <button class="nav-item" data-page="auth">🔐 <span>Login / Signup</span></button>
+  </aside>
+
+  <main class="main">
+
+    <!-- ================= HOME ================= -->
+    <section class="page active" id="page-home">
+      <div class="topbar">
+        <h1>🏠 Home</h1>
+        <div class="actions">
+          <button class="icon-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+          <button class="icon-btn" onclick="showNotif()">🔔<span class="badge-dot"></span></button>
+        </div>
+      </div>
+
+      <div class="hero">
+        <h1>Master English with your Personal AI Tutor</h1>
+        <p>Learn English. Practice English. Master English — adapted to your CEFR level.</p>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="nav('learn')">🚀 Start Learning</button>
+          <button class="btn btn-secondary" onclick="nav('ai-tutor')">💬 Talk to AI</button>
+          <button class="btn btn-secondary" onclick="nav('tests')">📝 Take Level Test</button>
+        </div>
+      </div>
+
+      <h2 class="mb-3">Your Learning Modules</h2>
+      <div class="grid grid-4 mb-4">
+        <div class="card" onclick="nav('speaking')" style="cursor:pointer;">
+          <div style="font-size:2rem;">🗣️</div>
+          <h3>Speaking</h3>
+          <p style="color:var(--text-soft);font-size:.85rem;">AI conversation + feedback</p>
+        </div>
+        <div class="card" onclick="nav('listening')" style="cursor:pointer;">
+          <div style="font-size:2rem;">🎧</div>
+          <h3>Listening</h3>
+          <p style="color:var(--text-soft);font-size:.85rem;">Audio + comprehension</p>
+        </div>
+        <div class="card" onclick="nav('reading')" style="cursor:pointer;">
+          <div style="font-size:2rem;">📖</div>
+          <h3>Reading</h3>
+          <p style="color:var(--text-soft);font-size:.85rem;">Articles + questions</p>
+        </div>
+        <div class="card" onclick="nav('writing')" style="cursor:pointer;">
+          <div style="font-size:2rem;">✍️</div>
+          <h3>Writing</h3>
+          <p style="color:var(--text-soft);font-size:.85rem;">AI essay feedback</p>
+        </div>
+      </div>
+
+      <h2 class="mb-3">AI Tutor</h2>
+      <div class="card mb-4" style="background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;">
+        <div class="flex-between flex-wrap gap-2">
+          <div style="flex:1;min-width:250px;">
+            <h3 style="color:#fff;">🤖 Meet your AI English Tutor</h3>
+            <p style="opacity:.95;margin-top:.5rem;">Ask grammar questions, get writing feedback, practice speaking, learn vocabulary — all personalized to your level.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="nav('ai-tutor')">Open Chat →</button>
+        </div>
+      </div>
+
+      <h2 class="mb-3">Your CEFR Journey</h2>
+      <div class="grid grid-3 mb-4">
+        <div class="level-card"><div class="code">A1</div><div class="name">Beginner</div><div class="desc">Basic words & phrases</div></div>
+        <div class="level-card"><div class="code">A2</div><div class="name">Elementary</div><div class="desc">Simple conversations</div></div>
+        <div class="level-card" style="border-color:var(--primary);"><div class="code">B1</div><div class="name">Intermediate</div><div class="desc">← You are here</div></div>
+        <div class="level-card"><div class="code">B2</div><div class="name">Upper Int.</div><div class="desc">Complex discussions</div></div>
+        <div class="level-card"><div class="code">C1</div><div class="name">Advanced</div><div class="desc">Fluent & nuanced</div></div>
+        <div class="level-card"><div class="code">C2</div><div class="name">Mastery</div><div class="desc">Near-native</div></div>
+      </div>
+
+      <h2 class="mb-3">Why EnglishForge AI?</h2>
+      <div class="grid grid-3 mb-4">
+        <div class="card"><h3>🧠 Adaptive Learning</h3><p style="color:var(--text-soft);font-size:.9rem;">AI detects your weak areas and generates targeted exercises.</p></div>
+        <div class="card"><h3>🎯 CEFR Aligned</h3><p style="color:var(--text-soft);font-size:.9rem;">Every lesson follows A1–C2 standard so progress is measurable.</p></div>
+        <div class="card"><h3>🗣️ Real Speaking Practice</h3><p style="color:var(--text-soft);font-size:.9rem;">Speak into your mic, get instant grammar + fluency feedback.</p></div>
+      </div>
+
+      <footer class="text-center" style="padding:2rem 0;color:var(--text-soft);border-top:1px solid var(--border);margin-top:2rem;">
+        <p>© 2025 EnglishForge AI — Built with ❤️ using Vanilla HTML/CSS/JS</p>
+      </footer>
+    </section>
+
+    <!-- ================= DASHBOARD ================= -->
+    <section class="page" id="page-dashboard">
+      <div class="topbar">
+        <h1>📊 Dashboard</h1>
+        <div class="actions">
+          <button class="icon-btn" onclick="toggleTheme()">🌙</button>
+          <button class="icon-btn" onclick="showNotif()">🔔<span class="badge-dot"></span></button>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;">
+        <div class="flex-between flex-wrap gap-2">
+          <div>
+            <p style="opacity:.85;font-size:.9rem;">Your English Level</p>
+            <h2 style="font-size:2rem;">B1 → B2</h2>
+          </div>
+          <div style="text-align:right;">
+            <p style="opacity:.85;font-size:.9rem;">🔥 Streak</p>
+            <h2 style="font-size:2rem;" id="streakVal">0 Days</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-4 mb-3">
+        <div class="card"><div class="stat-value" id="xpVal">0</div><div class="stat-label">XP Points</div></div>
+        <div class="card"><div class="stat-value" id="wordVal">0</div><div class="stat-label">Words Learned</div></div>
+        <div class="card"><div class="stat-value" id="quizVal">0</div><div class="stat-label">Quizzes Passed</div></div>
+        <div class="card"><div class="stat-value">B1</div><div class="stat-label">Current Level</div></div>
+      </div>
+
+      <div class="grid grid-2 mb-3">
+        <div class="card">
+          <div class="flex-between mb-1"><span>Today's Goal</span><span id="dailyPercent">0%</span></div>
+          <div class="progress-bar"><div class="progress-fill" id="dailyBar" style="width:0%;"></div></div>
+          <p class="mt-2" style="color:var(--text-soft);font-size:.85rem;">Target: 100 XP per day</p>
+        </div>
+        <div class="card">
+          <h3 class="mb-2">🎯 Recommended Lesson</h3>
+          <p style="color:var(--text-soft);font-size:.9rem;">Based on your weak areas (Subject-Verb Agreement)</p>
+          <button class="btn btn-primary btn-sm mt-2" onclick="nav('grammar')">Start Lesson →</button>
+        </div>
+      </div>
+
+      <h2 class="mb-2">Skill Progress</h2>
+      <div class="grid grid-3 mb-3">
+        <div class="card"><div class="flex-between"><span>🗣️ Speaking</span><strong>72%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:72%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>🎧 Listening</span><strong>81%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:81%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>📖 Reading</span><strong>76%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:76%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>✍️ Writing</span><strong>69%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:69%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>📝 Vocabulary</span><strong>84%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:84%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>📘 Grammar</span><strong>70%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:70%;"></div></div></div>
+      </div>
+
+      <h2 class="mb-2">Recent Activity</h2>
+      <div class="card">
+        <div class="activity-item"><div class="icon">🗣️</div><div><strong>Speaking Practice</strong><div style="color:var(--text-soft);font-size:.85rem;">Scored 78% fluency</div></div></div>
+        <div class="activity-item"><div class="icon">📝</div><div><strong>Vocab Quiz</strong><div style="color:var(--text-soft);font-size:.85rem;">8/10 correct</div></div></div>
+        <div class="activity-item"><div class="icon">📖</div><div><strong>Reading: AI Article</strong><div style="color:var(--text-soft);font-size:.85rem;">Completed +15 XP</div></div></div>
+        <div class="activity-item"><div class="icon">✍️</div><div><strong>Essay Submitted</strong><div style="color:var(--text-soft);font-size:.85rem;">Level: B1</div></div></div>
+      </div>
+    </section>
+
+    <!-- ================= LEARN ================= -->
+    <section class="page" id="page-learn">
+      <div class="topbar"><h1>📚 Learn English</h1></div>
+      <p class="mb-3" style="color:var(--text-soft);">Choose your CEFR level to start learning.</p>
+      <div class="grid grid-3" id="levelsGrid"></div>
+      <h2 class="mt-3 mb-2" id="topicsTitle" style="display:none;">Lessons & Exercises</h2>
+      <div class="grid grid-3" id="topicsGrid"></div>
+    </section>
+
+    <!-- ================= GRAMMAR ================= -->
+    <section class="page" id="page-grammar">
+      <div class="topbar"><h1>📘 Grammar</h1></div>
+      <p class="mb-3" style="color:var(--text-soft);">Master English grammar with lessons and interactive exercises.</p>
+
+      <div class="grid grid-3 mb-4" id="grammarTopics"></div>
+
+      <div class="card hidden" id="grammarLesson">
+        <h2 id="gLessonTitle">Grammar Lesson</h2>
+        <div id="gLessonContent" class="mt-3"></div>
+        <div class="mt-3" id="gExercises"></div>
+        <button class="btn btn-secondary mt-3" onclick="closeGrammarLesson()">← Back to Topics</button>
+      </div>
+    </section>
+
+    <!-- ================= VOCABULARY ================= -->
+    <section class="page" id="page-vocabulary">
+      <div class="topbar"><h1>📝 Vocabulary</h1></div>
+
+      <div class="flex gap-2 mb-3 flex-wrap">
+        <button class="btn btn-primary btn-sm" onclick="switchVocabTab('flashcards')" id="vtab-flashcards">🃏 Flashcards</button>
+        <button class="btn btn-secondary btn-sm" onclick="switchVocabTab('quiz')" id="vtab-quiz">🧪 Quiz</button>
+        <button class="btn btn-secondary btn-sm" onclick="switchVocabTab('search')" id="vtab-search">🔍 Search</button>
+      </div>
+
+      <div id="vocab-flashcards">
+        <div class="grid grid-2 mb-3">
+          <div class="flashcard" id="flashcard" onclick="flipCard()">
+            <div class="word" id="fcWord">Resilient</div>
+            <div class="hint" id="fcHint">Tap to see meaning</div>
+          </div>
+          <div class="card">
+            <h3 class="mb-2">Word Details</h3>
+            <p><strong>Meaning:</strong> <span id="wMeaning">-</span></p>
+            <p class="mt-1"><strong>Example:</strong> <span id="wExample">-</span></p>
+            <p class="mt-1"><strong>Synonyms:</strong> <span id="wSynonyms">-</span></p>
+            <p class="mt-1"><strong>Antonyms:</strong> <span id="wAntonyms">-</span></p>
+            <p class="mt-1"><strong>Part of Speech:</strong> <span id="wPos">-</span></p>
+            <p class="mt-1"><strong>Pronunciation:</strong> <span id="wPron">-</span></p>
+            <div class="flex gap-2 mt-3 flex-wrap">
+              <button class="btn btn-primary btn-sm" onclick="nextWord()">➡️ Next</button>
+              <button class="btn btn-secondary btn-sm" onclick="saveWord()">⭐ Save</button>
+              <button class="btn btn-secondary btn-sm" onclick="speakWord()">🔊 Listen</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="mb-2">⭐ Saved Words (<span id="savedCount">0</span>)</h3>
+          <div id="savedWords" class="flex flex-wrap gap-1"></div>
+        </div>
+      </div>
+
+      <div id="vocab-quiz" class="hidden">
+        <div class="card">
+          <h3 class="mb-2">Vocabulary Quiz</h3>
+          <p id="vqQuestion" style="font-size:1.1rem;margin-bottom:1rem;"></p>
+          <div id="vqOptions"></div>
+          <p id="vqResult" class="mt-2"></p>
+          <button class="btn btn-primary mt-2 hidden" id="vqNextBtn" onclick="nextVQ()">Next</button>
+        </div>
+      </div>
+
+      <div id="vocab-search" class="hidden">
+        <div class="input-group">
+          <input type="text" id="vocabSearch" placeholder="Search word..." oninput="searchVocab()" />
+        </div>
+        <div class="grid grid-3" id="vocabResults"></div>
+      </div>
+    </section>
+
+    <!-- ================= AI TUTOR ================= -->
+    <section class="page" id="page-ai-tutor">
+      <div class="topbar">
+        <h1>🤖 AI English Tutor</h1>
+        <button class="btn btn-secondary btn-sm" onclick="clearChat()">🗑️ Clear Chat</button>
+      </div>
+
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="status"></div>
+          <strong>English AI Tutor</strong>
+          <span style="color:var(--text-soft);font-size:.85rem;margin-left:auto;">Online</span>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="suggested">
+          <span class="chip" onclick="quickAsk('What is a metaphor?')">What is a metaphor?</span>
+          <span class="chip" onclick="quickAsk('Explain present perfect tense')">Present perfect tense</span>
+          <span class="chip" onclick="quickAsk('Difference between say and tell')">Say vs Tell</span>
+          <span class="chip" onclick="quickAsk('IELTS speaking tips')">IELTS tips</span>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" id="chatInput" placeholder="Ask anything about English..." />
+          <button onclick="sendChat()">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SPEAKING ================= -->
+    <section class="page" id="page-speaking">
+      <div class="topbar"><h1>🗣️ Speaking Practice</h1></div>
+
+      <div class="card mb-3">
+        <h3 class="mb-2">AI Prompt</h3>
+        <p id="speakingPrompt" style="font-size:1.1rem;color:var(--primary);font-weight:600;">
+          Tell me about your future goals.
+        </p>
+        <button class="btn btn-secondary btn-sm mt-2" onclick="nextSpeakingPrompt()">🔄 New Prompt</button>
+      </div>
+
+      <div class="card mic-area">
+        <button class="mic-btn" id="micBtn" onclick="toggleMic()">🎤</button>
+        <div class="timer" id="speakingTimer">00:00</div>
+        <p id="micStatus" style="color:var(--text-soft);">Tap the mic and start speaking</p>
+        <p class="mt-2" id="transcript" style="font-size:1.05rem;min-height:60px;"></p>
+      </div>
+
+      <div class="card mt-3 hidden" id="speakingFeedback">
+        <h3 class="mb-2">AI Feedback</h3>
+        <div class="feedback-grid">
+          <div class="feedback-item"><div class="val" id="fbGrammar">-</div><div class="stat-label">Grammar</div></div>
+          <div class="feedback-item"><div class="val" id="fbVocabulary">-</div><div class="stat-label">Vocabulary</div></div>
+          <div class="feedback-item"><div class="val" id="fbFluency">-</div><div class="stat-label">Fluency</div></div>
+          <div class="feedback-item"><div class="val" id="fbPron">-</div><div class="stat-label">Pronunciation</div></div>
+        </div>
+        <p class="mt-3" id="fbSuggestion" style="color:var(--text-soft);"></p>
+      </div>
+    </section>
+
+    <!-- ================= LISTENING ================= -->
+    <section class="page" id="page-listening">
+      <div class="topbar"><h1>🎧 Listening Practice</h1></div>
+
+      <div class="audio-player">
+        <h3 class="mb-2">Listen and Answer</h3>
+        <div class="audio-wave" id="audioWave">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="flex-center gap-2 flex-wrap">
+          <button class="btn btn-primary" onclick="playListening(false)">▶️ Play</button>
+          <button class="btn btn-secondary" onclick="playListening(true)">🐢 Slow</button>
+          <button class="btn btn-secondary" onclick="showTranscript()">📜 Transcript</button>
+        </div>
+        <p class="mt-3 hidden" id="transcriptText" style="color:var(--text-soft);font-style:italic;"></p>
+      </div>
+
+      <div class="card mt-3">
+        <h3 class="mb-2">Comprehension Questions</h3>
+        <div id="listenQuestions"></div>
+        <p id="listenResult" class="mt-2"></p>
+      </div>
+    </section>
+
+    <!-- ================= READING ================= -->
+    <section class="page" id="page-reading">
+      <div class="topbar"><h1>📖 Reading Practice</h1></div>
+
+      <div class="article" id="readingArticle">
+        <h3 class="mb-2">The Future of Artificial Intelligence</h3>
+        <p>
+          Artificial Intelligence is transforming the way we live and work. From
+          <mark onclick="wordTip('healthcare')">healthcare</mark> to education, AI systems are becoming more capable every year.
+          Many experts believe that <mark onclick="wordTip('automation')">automation</mark> will replace some jobs, but it will also create new ones.
+          The key is to <mark onclick="wordTip('adapt')">adapt</mark> and keep learning.
+          In the future, AI might help humans solve problems that were once considered impossible.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 class="mb-2">Comprehension</h3>
+        <div id="readingQuestions"></div>
+        <p id="readingResult" class="mt-2"></p>
+      </div>
+    </section>
+
+    <!-- ================= WRITING ================= -->
+    <section class="page" id="page-writing">
+      <div class="topbar"><h1>✍️ Writing Practice</h1></div>
+
+      <div class="card mb-3">
+        <h3 class="mb-2">Task</h3>
+        <p id="writingTask">Write an essay about how technology has changed your daily life.</p>
+        <p style="color:var(--text-soft);font-size:.85rem;margin-top:.5rem;">Minimum 50 words.</p>
+      </div>
+
+      <div class="input-group">
+        <textarea id="writingInput" placeholder="Start writing here..." oninput="updateWordCount()"></textarea>
+        <div class="flex-between mt-2">
+          <span style="color:var(--text-soft);font-size:.85rem;">
+            <span id="wordCount">0</span> words ·
+            <span id="charCount">0</span> chars
+          </span>
+          <button class="btn btn-primary" onclick="analyzeWriting()">🔍 Analyze</button>
+        </div>
+      </div>
+
+      <div class="card mt-3 hidden" id="writingFeedback">
+        <h3 class="mb-2">AI Evaluation</h3>
+        <div class="feedback-grid">
+          <div class="feedback-item"><div class="val" id="wGrammar">-</div><div class="stat-label">Grammar</div></div>
+          <div class="feedback-item"><div class="val" id="wVocab">-</div><div class="stat-label">Vocabulary</div></div>
+          <div class="feedback-item"><div class="val" id="wStructure">-</div><div class="stat-label">Structure</div></div>
+          <div class="feedback-item"><div class="val" id="wCEFR">-</div><div class="stat-label">CEFR</div></div>
+        </div>
+        <div class="mt-3">
+          <h4>Corrections & Suggestions:</h4>
+          <ul id="wSuggestions" style="margin-top:.5rem;padding-left:1.25rem;color:var(--text-soft);"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTS ================= -->
+    <section class="page" id="page-tests">
+      <div class="topbar"><h1>🧪 Tests</h1></div>
+
+      <div class="test-hero">
+        <h2>Level Assessment Test</h2>
+        <p>Find out your current English level (A1 to C2)</p>
+        <button class="btn btn-secondary mt-2" onclick="startTest()">Start Test</button>
+      </div>
+
+      <div class="card hidden" id="testBox">
+        <h3 class="mb-2">Question <span id="testQNum">1</span> / <span id="testTotal">5</span></h3>
+        <p id="testQuestion" style="font-size:1.1rem;margin-bottom:1rem;"></p>
+        <div id="testOptions"></div>
+        <p id="testResult" class="mt-2"></p>
+        <button class="btn btn-primary mt-2 hidden" id="testNextBtn" onclick="nextTestQ()">Next</button>
+      </div>
+
+      <div class="card hidden mt-3" id="testFinal">
+        <h3>🎉 Test Complete!</h3>
+        <p class="mt-2">Your estimated level: <strong id="finalLevel" style="font-size:1.5rem;color:var(--primary);"></strong></p>
+        <p class="mt-1" id="finalScore" style="color:var(--text-soft);"></p>
+        <button class="btn btn-primary mt-3" onclick="restartTest()">🔄 Retake Test</button>
+      </div>
+    </section>
+
+    <!-- ================= PROGRESS ================= -->
+    <section class="page" id="page-progress">
+      <div class="topbar"><h1>📈 Progress</h1></div>
+
+      <div class="grid grid-2 mb-3">
+        <div class="card">
+          <h3>Overall Level</h3>
+          <div class="stat-value" style="font-size:2.5rem;">B1</div>
+          <p style="color:var(--text-soft);">Intermediate — on track to B2</p>
+          <div class="progress-bar mt-2"><div class="progress-fill" style="width:65%;"></div></div>
+        </div>
+        <div class="card">
+          <h3>Weekly Activity</h3>
+          <div class="flex" style="gap:6px;align-items:flex-end;height:100px;margin-top:.5rem;">
+            <div style="flex:1;background:var(--primary);height:40%;border-radius:6px;"></div>
+            <div style="flex:1;background:var(--primary);height:70%;border-radius:6px;"></div>
+            <div style="flex:1;background:var(--primary);height:55%;border-radius:6px;"></div>
+            <div style="flex:1;background:var(--primary);height:90%;border-radius:6px;"></div>
+            <div style="flex:1;background:var(--primary);height:65%;border-radius:6px;"></div>
+            <div style="flex:1;background:var(--primary);height:80%;border-radius:6px;"></div>
+            <div style="flex:1;background:var(--accent);height:100%;border-radius:6px;"></div>
+          </div>
+          <div class="flex-between mt-2" style="font-size:.75rem;color:var(--text-soft);">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="mb-2">Skill Breakdown</h2>
+      <div class="grid grid-3 mb-3">
+        <div class="card"><div class="flex-between"><span>🗣️ Speaking</span><strong>72%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:72%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>🎧 Listening</span><strong>81%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:81%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>📖 Reading</span><strong>76%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:76%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>✍️ Writing</span><strong>69%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:69%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>📝 Vocabulary</span><strong>84%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:84%;"></div></div></div>
+        <div class="card"><div class="flex-between"><span>📘 Grammar</span><strong>70%</strong></div><div class="progress-bar"><div class="progress-fill" style="width:70%;"></div></div></div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 class="mb-2">💪 Strong Areas</h3>
+          <ul style="list-style:none;color:var(--text-soft);">
+            <li>✅ Listening comprehension</li>
+            <li>✅ Vocabulary recall</li>
+            <li>✅ Reading speed</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="mb-2">🎯 Weak Areas</h3>
+          <ul style="list-style:none;color:var(--text-soft);">
+            <li>⚠️ Subject-verb agreement</li>
+            <li>⚠️ Article usage (a/an/the)</li>
+            <li>⚠️ Writing coherence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROFILE ================= -->
+    <section class="page" id="page-profile">
+      <div class="topbar"><h1>👤 Profile</h1></div>
+
+      <div class="card mb-3 text-center">
+        <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#fff;">👤</div>
+        <h2>Guest User</h2>
+        <span class="level-badge">Level B1</span>
+        <p class="mt-2" style="color:var(--text-soft);">Learning English with EnglishForge AI</p>
+      </div>
+
+      <div class="grid grid-3 mb-3">
+        <div class="card text-center"><div class="stat-value" id="profileXP">0</div><div class="stat-label">Total XP</div></div>
+        <div class="card text-center"><div class="stat-value" id="profileStreak">0</div><div class="stat-label">Day Streak</div></div>
+        <div class="card text-center"><div class="stat-value" id="profileWords">0</div><div class="stat-label">Words Saved</div></div>
+      </div>
+
+      <div class="card">
+        <h3 class="mb-2">🏆 Achievements</h3>
+        <div class="grid grid-4">
+          <div class="text-center"><div style="font-size:2rem;">🥇</div><div class="stat-label">First Lesson</div></div>
+          <div class="text-center"><div style="font-size:2rem;">🔥</div><div class="stat-label">7 Day Streak</div></div>
+          <div class="text-center"><div style="font-size:2rem;">📚</div><div class="stat-label">10 Words</div></div>
+          <div class="text-center"><div style="font-size:2rem;">🎯</div><div class="stat-label">First Quiz</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= AUTH ================= -->
+    <section class="page" id="page-auth">
+      <div class="auth-box">
+        <h2 id="authTitle">Welcome Back</h2>
+        <p class="text-center mb-3" style="color:var(--text-soft);" id="authSub">Login to continue learning</p>
+
+        <div class="input-group hidden" id="nameGroup">
+          <label>Name</label>
+          <input type="text" id="authName" placeholder="Your name" />
+        </div>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="authEmail" placeholder="you@example.com" />
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="authPass" placeholder="••••••••" />
+        </div>
+
+        <button class="btn btn-primary" style="width:100%;" onclick="handleAuth()" id="authBtn">Login</button>
+
+        <p class="auth-switch">
+          <span id="authSwitchText">Don't have an account?</span>
+          <a onclick="toggleAuthMode()" id="authSwitchLink">Sign up</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* ============================================================
+   STATE
+   ============================================================ */
+const state = {
+  xp:0, streak:0, wordsLearned:0, quizzesPassed:0,
+  savedWords:[], currentLevel:'B1', authMode:'login'
+};
+try { Object.assign(state, JSON.parse(localStorage.getItem('efAI') || '{}')); } catch(e){}
+function saveState() { localStorage.setItem('efAI', JSON.stringify(state)); }
+
+/* ============================================================
+   TOAST SYSTEM
+   ============================================================ */
+function toast(msg, type='info', duration=3000) {
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  document.getElementById('toastContainer').appendChild(t);
+  setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(60px)'; t.style.transition = '0.3s'; }, duration - 300);
+  setTimeout(() => t.remove(), duration);
+}
+function showNotif() { toast('🔔 No new notifications', 'info'); }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+function nav(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page)?.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelector(`.nav-item[data-page="${page}"]`)?.classList.add('active');
+  document.getElementById('sidebar').classList.remove('open');
+  window.scrollTo(0,0);
+  if (['dashboard','profile'].includes(page)) updateStats();
+}
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => nav(item.dataset.page));
+});
+document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('sidebar').classList.toggle('open');
+});
+
+/* ============================================================
+   THEME
+   ============================================================ */
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  document.querySelectorAll('[onclick="toggleTheme()"]').forEach(b => {
+    b.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  });
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+function updateStats() {
+  document.getElementById('xpVal').textContent = state.xp;
+  document.getElementById('streakVal').textContent = state.streak + ' Days';
+  document.getElementById('wordVal').textContent = state.wordsLearned;
+  document.getElementById('quizVal').textContent = state.quizzesPassed;
+
+  const percent = Math.min(100, Math.round((state.xp/100)*100));
+  document.getElementById('dailyPercent').textContent = percent + '%';
+  document.getElementById('dailyBar').style.width = percent + '%';
+
+  document.getElementById('profileXP').textContent = state.xp;
+  document.getElementById('profileStreak').textContent = state.streak;
+  document.getElementById('profileWords').textContent = state.savedWords.length;
+  document.getElementById('savedCount').textContent = state.savedWords.length;
+
+  const saved = document.getElementById('savedWords');
+  saved.innerHTML = state.savedWords.length
+    ? state.savedWords.map(w => `<span class="level-badge">${w}</span>`).join('')
+    : '<span style="color:var(--text-soft);">No words saved yet.</span>';
+}
+function addXP(amount, silent=false) {
+  state.xp += amount;
+  saveState();
+  updateStats();
+  if (!silent) toast(`+${amount} XP earned!`, 'success');
+}
+
+/* ============================================================
+   LEARN
+   ============================================================ */
+const levels = [
+  { code:'A1', name:'Beginner', desc:'Basic words and phrases' },
+  { code:'A2', name:'Elementary', desc:'Simple conversations' },
+  { code:'B1', name:'Intermediate', desc:'Everyday topics' },
+  { code:'B2', name:'Upper Intermediate', desc:'Complex discussions' },
+  { code:'C1', name:'Advanced', desc:'Fluent & nuanced' },
+  { code:'C2', name:'Mastery', desc:'Near-native' }
+];
+const levelTopics = {
+  A1:['Alphabet & Sounds','Basic Greetings','Numbers & Time','Family & Friends','Colors & Shapes','Simple Present'],
+  A2:['Daily Routine','Past Simple','Future Plans','Shopping','Directions','Comparatives'],
+  B1:['Present Perfect','Conditionals','Phrasal Verbs','Opinions','Storytelling','Emails'],
+  B2:['Passive Voice','Reported Speech','Idioms','Debates','Essays','Presentations'],
+  C1:['Advanced Grammar','Nuanced Vocabulary','Academic Writing','Public Speaking','Literature','Debate'],
+  C2:['Native Idioms','Stylistic Writing','Subtle Meaning','Humour','Poetry','Professional Speaking']
+};
+function renderLevels() {
+  document.getElementById('levelsGrid').innerHTML = levels.map(l => `
+    <div class="level-card" onclick="selectLevel('${l.code}')">
+      <div class="code">${l.code}</div>
+      <div class="name">${l.name}</div>
+      <div class="desc">${l.desc}</div>
+    </div>
+  `).join('');
+}
+function selectLevel(code) {
+  state.currentLevel = code;
+  saveState();
+  document.getElementById('topicsTitle').style.display = 'block';
+  document.getElementById('topicsTitle').textContent = `Lessons for ${code} — ${levels.find(l=>l.code===code).name}`;
+  document.getElementById('topicsGrid').innerHTML = (levelTopics[code]||[]).map(t => `
+    <div class="card" onclick="addXP(5);toast('Started: ${t}','info');">
+      <h3>📘 ${t}</h3>
+      <p style="color:var(--text-soft);font-size:.85rem;">Click to start (+5 XP)</p>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   GRAMMAR
+   ============================================================ */
+const grammarTopics = [
+  {
+    id:'sva', title:'Subject-Verb Agreement',
+    content:`<p><strong>Rule:</strong> A singular subject takes a singular verb; a plural subject takes a plural verb.</p>
+    <p class="mt-2"><strong>Examples:</strong></p>
+    <ul style="padding-left:1.25rem;margin-top:.5rem;">
+      <li>✅ She <strong>goes</strong> to school.</li>
+      <li>❌ She <strong>go</strong> to school.</li>
+      <li>✅ They <strong>are</strong> happy.</li>
+      <li>❌ They <strong>is</strong> happy.</li>
+    </ul>`,
+    exercises:[
+      { q:'He ___ to work every day.', options:['go','goes','going','gone'], ans:1 },
+      { q:'The dogs ___ barking.', options:['is','are','was','be'], ans:1 },
+      { q:'My sister and I ___ friends.', options:['is','am','are','be'], ans:2 }
+    ]
+  },
+  {
+    id:'articles', title:'Articles (a / an / the)',
+    content:`<p><strong>Rule:</strong></p>
+    <ul style="padding-left:1.25rem;margin-top:.5rem;">
+      <li><strong>a</strong> — before consonant sounds: <em>a book</em></li>
+      <li><strong>an</strong> — before vowel sounds: <em>an apple</em></li>
+      <li><strong>the</strong> — for specific things: <em>the sun</em></li>
+    </ul>`,
+    exercises:[
+      { q:'I saw ___ elephant.', options:['a','an','the','—'], ans:1 },
+      { q:'She is ___ best student.', options:['a','an','the','—'], ans:2 },
+      { q:'He bought ___ car yesterday.', options:['a','an','the','—'], ans:0 }
+    ]
+  },
+  {
+    id:'tense', title:'Present Perfect',
+    content:`<p><strong>Structure:</strong> have/has + past participle</p>
+    <p class="mt-2"><strong>Uses:</strong> past action with present relevance, life experience, unfinished time.</p>
+    <p class="mt-2"><strong>Examples:</strong> I <strong>have lived</strong> here for 5 years. She <strong>has finished</strong> her homework.</p>`,
+    exercises:[
+      { q:'I ___ here since 2010.', options:['live','lived','have lived','am living'], ans:2 },
+      { q:'She ___ her homework.', options:['finish','finishes','has finished','finishing'], ans:2 }
+    ]
+  },
+  {
+    id:'cond', title:'Conditionals',
+    content:`<p><strong>Types:</strong></p>
+    <ul style="padding-left:1.25rem;margin-top:.5rem;">
+      <li>Zero: If + present, present</li>
+      <li>First: If + present, will + verb</li>
+      <li>Second: If + past, would + verb</li>
+      <li>Third: If + had + pp, would have + pp</li>
+    </ul>`,
+    exercises:[
+      { q:'If it rains, I ___ stay home.', options:['will','would','am','was'], ans:0 },
+      { q:'If I ___ rich, I would travel.', options:['am','was','were','be'], ans:2 }
+    ]
+  },
+  {
+    id:'passive', title:'Passive Voice',
+    content:`<p><strong>Structure:</strong> be + past participle</p>
+    <p class="mt-2"><strong>Active:</strong> He wrote the book.<br><strong>Passive:</strong> The book <strong>was written</strong> by him.</p>`,
+    exercises:[
+      { q:'The letter ___ yesterday.', options:['sent','was sent','sends','is sending'], ans:1 },
+      { q:'English ___ all over the world.', options:['speaks','is spoken','spoke','speaking'], ans:1 }
+    ]
+  },
+  {
+    id:'phrasal', title:'Phrasal Verbs',
+    content:`<p>Phrasal verbs = verb + preposition/adverb, meaning changes.</p>
+    <ul style="padding-left:1.25rem;margin-top:.5rem;">
+      <li>give up = quit</li>
+      <li>look after = take care of</li>
+      <li>put off = postpone</li>
+      <li>turn down = reject</li>
+    </ul>`,
+    exercises:[
+      { q:'Don\'t give ___ your dreams.', options:['in','up','on','off'], ans:1 },
+      { q:'I need to look ___ my little sister.', options:['after','for','at','up'], ans:0 }
+    ]
+  }
+];
+
+function renderGrammarTopics() {
+  document.getElementById('grammarTopics').innerHTML = grammarTopics.map(t => `
+    <div class="card" onclick="openGrammarLesson('${t.id}')" style="cursor:pointer;">
+      <h3>📘 ${t.title}</h3>
+      <p style="color:var(--text-soft);font-size:.85rem;">${t.exercises.length} exercises</p>
+      <button class="btn btn-primary btn-sm mt-2">Open Lesson</button>
+    </div>
+  `).join('');
+}
+
+let currentGrammarTopic = null;
+let currentGrammarQ = 0;
+let grammarScore = 0;
+
+function openGrammarLesson(id) {
+  const t = grammarTopics.find(g => g.id === id);
+  if (!t) return;
+  currentGrammarTopic = t;
+  currentGrammarQ = 0;
+  grammarScore = 0;
+  document.getElementById('grammarTopics').classList.add('hidden');
+  document.getElementById('grammarLesson').classList.remove('hidden');
+  document.getElementById('gLessonTitle').textContent = t.title;
+  document.getElementById('gLessonContent').innerHTML = t.content;
+  renderGrammarExercise();
+}
+
+function renderGrammarExercise() {
+  const t = currentGrammarTopic;
+  if (currentGrammarQ >= t.exercises.length) {
+    document.getElementById('gExercises').innerHTML = `
+      <div class="card">
+        <h3>🎉 Lesson Complete!</h3>
+        <p class="mt-2">Score: <strong>${grammarScore}/${t.exercises.length}</strong></p>
+      </div>`;
+    addXP(10);
+    return;
+  }
+  const q = t.exercises[currentGrammarQ];
+  document.getElementById('gExercises').innerHTML = `
+    <div class="card">
+      <h3 class="mb-2">Exercise ${currentGrammarQ+1}/${t.exercises.length}</h3>
+      <p style="margin-bottom:1rem;">${q.q}</p>
+      ${q.options.map((o,i) => `<button class="quiz-option" onclick="checkGrammar(${i},this)">${o}</button>`).join('')}
+      <p id="gResult" class="mt-2"></p>
+    </div>`;
+}
+
+function checkGrammar(i, btn) {
+  const q = currentGrammarTopic.exercises[currentGrammarQ];
+  document.querySelectorAll('#gExercises .quiz-option').forEach(b => b.disabled = true);
+  if (i === q.ans) {
+    btn.classList.add('correct');
+    document.getElementById('gResult').textContent = '✅ Correct!';
+    grammarScore++;
+    addXP(3, true);
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('#gExercises .quiz-option')[q.ans].classList.add('correct');
+    document.getElementById('gResult').textContent = '❌ Wrong.';
+  }
+  currentGrammarQ++;
+  setTimeout(renderGrammarExercise, 1200);
+}
+
+function closeGrammarLesson() {
+  document.getElementById('grammarLesson').classList.add('hidden');
+  document.getElementById('grammarTopics').classList.remove('hidden');
+}
+
+/* ============================================================
+   AI CHAT
+   ============================================================ */
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const aiResponses = {
+  'metaphor':'A **metaphor** is a figure of speech that describes something by saying it IS something else. Example: "Time is a thief."',
+  'grammar':'Grammar is the set of rules that govern how words are used in a language. Ask me about any specific rule!',
+  'tense':'English has 12 tenses! Present, Past, Future — each with Simple, Continuous, Perfect, and Perfect Continuous.',
+  'hello':'Hello! 👋 How can I help you with your English today?',
+  'hi':'Hi there! Ready to practice English? Ask me anything.',
+  'vocabulary':'Vocabulary is the set of words you know. Want to learn a new word today?',
+  'ielts':'IELTS has 4 sections: Listening, Reading, Writing, Speaking. Want tips for any specific section?',
+  'difference':'Which two words do you want to compare? Try: "difference between say and tell".',
+  'article':'Articles are a, an, the. "A" before consonant sounds, "an" before vowel sounds, "the" for specific things.',
+  'say':'**Say** focuses on words spoken. **Tell** needs an object: tell someone.',
+  'present perfect':'Present Perfect = have/has + past participle. Used for actions with present relevance.',
+  'default':'Great question! I\'m a demo AI right now. In the next version, I\'ll be connected to a real AI API to give detailed English tutoring. Try asking about: grammar, tenses, vocabulary, IELTS.'
+};
+function addMessage(text, sender) {
+  const msg = document.createElement('div');
+  msg.className = 'msg ' + sender;
+  msg.innerHTML = text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return msg;
+}
+function showTyping() {
+  const msg = document.createElement('div');
+  msg.className = 'msg ai typing';
+  msg.innerHTML = '<span></span><span></span><span></span>';
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return msg;
+}
+function getAIResponse(text) {
+  const lower = text.toLowerCase();
+  for (const key in aiResponses) {
+    if (key !== 'default' && lower.includes(key)) return aiResponses[key];
+  }
+  return aiResponses.default;
+}
+function sendChat() {
+  const text = chatInput.value.trim();
+  if (!text) return;
+  addMessage(text,'user');
+  chatInput.value = '';
+  const typing = showTyping();
+  setTimeout(() => {
+    typing.remove();
+    addMessage(getAIResponse(text),'ai');
+    addXP(2, true);
+  }, 800);
+}
+function quickAsk(text) { chatInput.value = text; sendChat(); }
+function clearChat() {
+  chatMessages.innerHTML = '';
+  addMessage('Chat cleared. How can I help you? 🤖','ai');
+}
+chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendChat(); });
+addMessage('Hello! 👋 I am your **English AI Tutor**. Ask me about grammar, vocabulary, tenses, IELTS, or anything English-related!','ai');
+
+/* ============================================================
+   SPEAKING
+   ============================================================ */
+let recognition = null;
+let isListening = false;
+let speakTimer = null;
+let speakSeconds = 0;
+
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  recognition = new SR();
+  recognition.continuous = false;
+  recognition.interimResults = true;
+  recognition.lang = 'en-US';
+  recognition.onresult = (e) => {
+    const t = Array.from(e.results).map(r => r[0].transcript).join('');
+    document.getElementById('transcript').textContent = '"' + t + '"';
+  };
+  recognition.onend = () => {
+    isListening = false;
+    document.getElementById('micBtn').classList.remove('listening');
+    document.getElementById('micStatus').textContent = 'Tap the mic and start speaking';
+    clearInterval(speakTimer);
+    analyzeSpeaking();
+  };
+}
+function toggleMic() {
+  if (!recognition) { toast('Speech Recognition not supported. Use Chrome/Edge.','error'); return; }
+  if (isListening) {
+    recognition.stop();
+  } else {
+    recognition.start();
+    isListening = true;
+    speakSeconds = 0;
+    document.getElementById('speakingTimer').textContent = '00:00';
+    speakTimer = setInterval(() => {
+      speakSeconds++;
+      const m = String(Math.floor(speakSeconds/60)).padStart(2,'0');
+      const s = String(speakSeconds%60).padStart(2,'0');
+      document.getElementById('speakingTimer').textContent = m + ':' + s;
+    }, 1000);
+    document.getElementById('micBtn').classList.add('listening');
+    document.getElementById('micStatus').textContent = '🎙️ Listening... speak now';
+    document.getElementById('transcript').textContent = '';
+    document.getElementById('speakingFeedback').classList.add('hidden');
+  }
+}
+function analyzeSpeaking() {
+  const text = document.getElementById('transcript').textContent;
+  if (!text || text.length < 5) return;
+  const words = text.split(/\s+/).length;
+  document.getElementById('fbGrammar').textContent = Math.min(95, 60+words) + '%';
+  document.getElementById('fbVocabulary').textContent = Math.min(95, 55+words) + '%';
+  document.getElementById('fbFluency').textContent = Math.min(95, 65+Math.floor(words/2)) + '%';
+  document.getElementById('fbPron').textContent = Math.min(95, 70+Math.floor(Math.random()*15)) + '%';
+  document.getElementById('fbSuggestion').textContent =
+    words < 10 ? '💡 Try longer sentences. Aim for 20-30 words.' : '💡 Good! Try more advanced vocabulary next time.';
+  document.getElementById('speakingFeedback').classList.remove('hidden');
+  addXP(10);
+}
+const speakingPrompts = [
+  'Tell me about your future goals.','Describe your favourite hobby.',
+  'What did you do last weekend?','Talk about a person you admire.',
+  'Describe your hometown.','What are the benefits of learning English?',
+  'Talk about your dream job.'
+];
+function nextSpeakingPrompt() {
+  document.getElementById('speakingPrompt').textContent =
+    speakingPrompts[Math.floor(Math.random()*speakingPrompts.length)];
+}
+
+/* ============================================================
+   LISTENING
+   ============================================================ */
+const listenAudioText = "Learning English opens many doors. It helps you communicate with people from around the world and gives you access to better education and job opportunities.";
+function playListening(slow=false) {
+  if (!('speechSynthesis' in window)) { toast('TTS not supported','error'); return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(listenAudioText);
+  u.lang = 'en-US';
+  u.rate = slow ? 0.6 : 1;
+  const wave = document.getElementById('audioWave');
+  wave.classList.add('playing');
+  u.onend = () => wave.classList.remove('playing');
+  window.speechSynthesis.speak(u);
+}
+function showTranscript() {
+  const t = document.getElementById('transcriptText');
+  t.classList.toggle('hidden');
+  t.textContent = listenAudioText;
+}
+const listenQs = [
+  { q:'What does learning English give you access to?', options:['Only movies','Better education and job opportunities','Free travel','Nothing'], ans:1 },
+  { q:'Who can you communicate with?', options:['Only your family','People from around the world','No one','Only teachers'], ans:1 }
+];
+function renderListeningQs() {
+  document.getElementById('listenQuestions').innerHTML = listenQs.map((q,i) => `
+    <div class="mb-3">
+      <p style="font-weight:600;margin-bottom:.5rem;">${i+1}. ${q.q}</p>
+      ${q.options.map((o,oi) => `<button class="quiz-option" onclick="checkListen(${i},${oi},this)">${o}</button>`).join('')}
+    </div>
+  `).join('');
+}
+function checkListen(qi, oi, btn) {
+  const q = listenQs[qi];
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-option').forEach(b => b.disabled = true);
+  if (oi === q.ans) {
+    btn.classList.add('correct');
+    document.getElementById('listenResult').textContent = '✅ Correct! +10 XP';
+    addXP(10);
+  } else {
+    btn.classList.add('wrong');
+    parent.querySelectorAll('.quiz-option')[q.ans].classList.add('correct');
+    document.getElementById('listenResult').textContent = '❌ Wrong.';
+  }
+}
+renderListeningQs();
+
+/* ============================================================
+   READING
+   ============================================================ */
+const readingQs = [
+  { q:'What is transforming the way we live?', options:['Sports','Artificial Intelligence','Music','Travel'], ans:1 },
+  { q:'What might automation replace?', options:['Some jobs','All food','Schools','Homes'], ans:0 },
+  { q:'What is the key according to the passage?', options:['To stop learning','To adapt and keep learning','To avoid AI','To work harder'], ans:1 }
+];
+function renderReadingQs() {
+  document.getElementById('readingQuestions').innerHTML = readingQs.map((q,qi) => `
+    <div class="mb-3">
+      <p style="font-weight:600;margin-bottom:.5rem;">${qi+1}. ${q.q}</p>
+      ${q.options.map((o,oi) => `<button class="quiz-option" onclick="checkReading(${qi},${oi},this)">${o}</button>`).join('')}
+    </div>
+  `).join('');
+}
+function checkReading(qi, oi, btn) {
+  const q = readingQs[qi];
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-option').forEach(b => b.disabled = true);
+  if (oi === q.ans) {
+    btn.classList.add('correct');
+    document.getElementById('readingResult').textContent = '✅ Good! +5 XP';
+    addXP(5);
+  } else {
+    btn.classList.add('wrong');
+    parent.querySelectorAll('.quiz-option')[q.ans].classList.add('correct');
+  }
+}
+function wordTip(word) {
+  const tips = {
+    healthcare:'Healthcare = medical services and care for people.',
+    automation:'Automation = using machines to do work automatically.',
+    adapt:'Adapt = to change yourself to fit new situations.'
+  };
+  toast(tips[word] || word, 'info', 4000);
+}
+renderReadingQs();
+
+/* ============================================================
+   WRITING
+   ============================================================ */
+function updateWordCount() {
+  const text = document.getElementById('writingInput').value;
+  const trimmed = text.trim();
+  document.getElementById('wordCount').textContent = trimmed ? trimmed.split(/\s+/).length : 0;
+  document.getElementById('charCount').textContent = text.length;
+}
+function analyzeWriting() {
+  const text = document.getElementById('writingInput').value.trim();
+  if (!text || text.split(/\s+/).length < 10) {
+    toast('Please write at least 10 words.','error'); return;
+  }
+  const words = text.split(/\s+/).length;
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim()).length;
+  const avgLen = words / Math.max(1, sentences);
+
+  const grammar = Math.min(95, 60 + Math.min(30, words/5));
+  const vocab = Math.min(95, 55 + Math.min(30, words/6));
+  const structure = avgLen > 8 && avgLen < 25 ? 85 : 65;
+  const cefr = words > 80 ? 'B2' : words > 40 ? 'B1' : 'A2';
+
+  document.getElementById('wGrammar').textContent = Math.round(grammar) + '%';
+  document.getElementById('wVocab').textContent = Math.round(vocab) + '%';
+  document.getElementById('wStructure').textContent = structure + '%';
+  document.getElementById('wCEFR').textContent = cefr;
+
+  const suggestions = [];
+  if (avgLen > 25) suggestions.push('Try shorter sentences for better readability.');
+  else if (avgLen < 8) suggestions.push('Try combining some short sentences.');
+  else suggestions.push('Good sentence length!');
+  if (words < 50) suggestions.push('Aim for at least 50 words for a full essay.');
+  suggestions.push('Consider using more linking words: however, therefore, moreover.');
+
+  document.getElementById('wSuggestions').innerHTML = suggestions.map(s => `<li>${s}</li>`).join('');
+  document.getElementById('writingFeedback').classList.remove('hidden');
+  addXP(15);
+}
+
+/* ============================================================
+   VOCABULARY
+   ============================================================ */
+const vocabList = [
+  { word:'Resilient', meaning:'Able to recover quickly from difficulties.', example:'She remained resilient despite failure.', synonyms:'strong, persistent, determined', antonyms:'fragile, weak', pos:'Adjective', pron:'/rɪˈzɪliənt/' },
+  { word:'Eloquent', meaning:'Fluent or persuasive in speaking or writing.', example:'His eloquent speech moved the audience.', synonyms:'articulate, expressive, fluent', antonyms:'inarticulate, tongue-tied', pos:'Adjective', pron:'/ˈeləkwənt/' },
+  { word:'Pragmatic', meaning:'Dealing with things sensibly and realistically.', example:'She took a pragmatic approach to the problem.', synonyms:'practical, realistic, sensible', antonyms:'idealistic, impractical', pos:'Adjective', pron:'/præɡˈmætɪk/' },
+  { word:'Ambiguous', meaning:'Open to more than one interpretation.', example:'The instructions were ambiguous.', synonyms:'unclear, vague, obscure', antonyms:'clear, definite', pos:'Adjective', pron:'/æmˈbɪɡjuəs/' },
+  { word:'Meticulous', meaning:'Showing great attention to detail.', example:'He was meticulous in his work.', synonyms:'careful, precise, thorough', antonyms:'careless, sloppy', pos:'Adjective', pron:'/məˈtɪkjələs/' },
+  { word:'Ubiquitous', meaning:'Present everywhere.', example:'Smartphones are ubiquitous today.', synonyms:'omnipresent, universal', antonyms:'rare, scarce', pos:'Adjective', pron:'/juːˈbɪkwɪtəs/' },
+  { word:'Ephemeral', meaning:'Lasting for a very short time.', example:'Fame can be ephemeral.', synonyms:'fleeting, temporary', antonyms:'permanent, eternal', pos:'Adjective', pron:'/ɪˈfemərəl/' },
+  { word:'Candid', meaning:'Truthful and straightforward.', example:'She gave a candid answer.', synonyms:'honest, frank', antonyms:'evasive, guarded', pos:'Adjective', pron:'/ˈkændɪd/' }
+];
+let vocabIndex = 0;
+let cardFlipped = false;
+
+function renderVocab() {
+  const v = vocabList[vocabIndex];
+  document.getElementById('fcWord').textContent = cardFlipped ? v.meaning : v.word;
+  document.getElementById('fcHint').textContent = cardFlipped ? 'Tap to see word' : 'Tap to see meaning';
+  document.getElementById('wMeaning').textContent = v.meaning;
+  document.getElementById('wExample').textContent = v.example;
+  document.getElementById('wSynonyms').textContent = v.synonyms;
+  document.getElementById('wAntonyms').textContent = v.antonyms;
+  document.getElementById('wPos').textContent = v.pos;
+  document.getElementById('wPron').textContent = v.pron;
+}
+function flipCard() { cardFlipped = !cardFlipped; renderVocab(); }
+function nextWord() {
+  vocabIndex = (vocabIndex + 1) % vocabList.length;
+  cardFlipped = false;
+  renderVocab();
+  state.wordsLearned++;
+  saveState();
+  updateStats();
+}
+function saveWord() {
+  const w = vocabList[vocabIndex].word;
+  if (!state.savedWords.includes(w)) {
+    state.savedWords.push(w);
+    saveState();
+    updateStats();
+    toast('Saved: ' + w, 'success');
+  } else {
+    toast('Already saved', 'info');
+  }
+}
+function speakWord() {
+  if (!('speechSynthesis' in window)) return;
+  const u = new SpeechSynthesisUtterance(vocabList[vocabIndex].word);
+  u.lang = 'en-US';
+  window.speechSynthesis.speak(u);
+}
+function switchVocabTab(tab) {
+  ['flashcards','quiz','search'].forEach(t => {
+    document.getElementById('vocab-'+t).classList.toggle('hidden', t !== tab);
+    document.getElementById('vtab-'+t).className = 'btn btn-sm ' + (t === tab ? 'btn-primary' : 'btn-secondary');
+  });
+  if (tab === 'quiz') startVQ();
+}
+
+// Vocab quiz
+let vqIndex = 0, vqScore = 0;
+function startVQ() {
+  vqIndex = 0; vqScore = 0;
+  nextVQ();
+}
+function nextVQ() {
+  if (vqIndex >= 5) {
+    document.getElementById('vqQuestion').textContent = `🎉 Quiz Complete! Score: ${vqScore}/5`;
+    document.getElementById('vqOptions').innerHTML = '';
+    document.getElementById('vqNextBtn').classList.add('hidden');
+    state.quizzesPassed++;
+    addXP(20);
+    return;
+  }
+  const correct = vocabList[Math.floor(Math.random()*vocabList.length)];
+  const wrongs = vocabList.filter(v => v.word !== correct.word).sort(() => Math.random()-0.5).slice(0,3);
+  const options = [correct, ...wrongs].sort(() => Math.random()-0.5);
+  document.getElementById('vqQuestion').textContent = `What does "${correct.word}" mean?`;
+  document.getElementById('vqOptions').innerHTML = options.map(o =>
+    `<button class="quiz-option" onclick="checkVQ('${o.word}','${correct.word}',this)">${o.meaning}</button>`
+  ).join('');
+  document.getElementById('vqResult').textContent = '';
+  document.getElementById('vqNextBtn').classList.add('hidden');
+  document.getElementById('vqNextBtn').onclick = () => { vqIndex++; nextVQ(); };
+}
+function checkVQ(selected, correct, btn) {
+  document.querySelectorAll('#vqOptions .quiz-option').forEach(b => b.disabled = true);
+  if (selected === correct) {
+    btn.classList.add('correct');
+    document.getElementById('vqResult').textContent = '✅ Correct!';
+    vqScore++;
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('vqResult').textContent = `❌ Wrong. Answer was: ${correct}`;
+  }
+  document.getElementById('vqNextBtn').classList.remove('hidden');
+}
+
+// Vocab search
+function searchVocab() {
+  const q = document.getElementById('vocabSearch').value.toLowerCase().trim();
+  const results = q ? vocabList.filter(v => v.word.toLowerCase().includes(q) || v.meaning.toLowerCase().includes(q)) : vocabList;
+  document.getElementById('vocabResults').innerHTML = results.length
+    ? results.map(v => `
+      <div class="card">
+        <h3>${v.word}</h3>
+        <p style="color:var(--text-soft);font-size:.85rem;">${v.pos} · ${v.pron}</p>
+        <p class="mt-1">${v.meaning}</p>
+      </div>`).join('')
+    : `<div class="empty-state"><div class="icon">🔍</div><p>No words found</p></div>`;
+}
+
+/* ============================================================
+   TESTS
+   ============================================================ */
+const testQs = [
+  { q:'She ___ to school every day.', options:['go','goes','going','gone'], ans:1 },
+  { q:'I have lived here ___ 2010.', options:['for','since','from','at'], ans:1 },
+  { q:'If I ___ rich, I would travel the world.', options:['am','was','were','be'], ans:2 },
+  { q:'The book ___ by him last year.', options:['wrote','was written','is written','writes'], ans:1 },
+  { q:'She said she ___ tired.', options:['is','was','were','be'], ans:1 }
+];
+let testIndex = 0, testScore = 0;
+
+function startTest() {
+  testIndex = 0; testScore = 0;
+  document.getElementById('testBox').classList.remove('hidden');
+  document.getElementById('testFinal').classList.add('hidden');
+  document.getElementById('testTotal').textContent = testQs.length;
+  renderTestQ();
+}
+function restartTest() {
+  document.getElementById('testFinal').classList.add('hidden');
+  document.getElementById('testBox').classList.add('hidden');
+}
+function renderTestQ() {
+  const q = testQs[testIndex];
+  document.getElementById('testQNum').textContent = testIndex+1;
+  document.getElementById('testQuestion').textContent = q.q;
+  document.getElementById('testResult').textContent = '';
+  document.getElementById('testNextBtn').classList.add('hidden');
+  document.getElementById('testOptions').innerHTML = q.options.map((o,i) =>
+    `<button class="quiz-option" onclick="checkTest(${i},this)">${o}</button>`
+  ).join('');
+}
+function checkTest(i, btn) {
+  const q = testQs[testIndex];
+  document.querySelectorAll('#testOptions .quiz-option').forEach(b => b.disabled = true);
+  if (i === q.ans) {
+    btn.classList.add('correct');
+    document.getElementById('testResult').textContent = '✅ Correct!';
+    testScore++;
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('#testOptions .quiz-option')[q.ans].classList.add('correct');
+    document.getElementById('testResult').textContent = '❌ Wrong.';
+  }
+  document.getElementById('testNextBtn').classList.remove('hidden');
+}
+function nextTestQ() {
+  testIndex++;
+  if (testIndex < testQs.length) renderTestQ();
+  else {
+    document.getElementById('testBox').classList.add('hidden');
+    document.getElementById('testFinal').classList.remove('hidden');
+    const percent = (testScore/testQs.length)*100;
+    const level = percent>=90?'C1':percent>=70?'B2':percent>=50?'B1':percent>=30?'A2':'A1';
+    document.getElementById('finalLevel').textContent = level;
+    document.getElementById('finalScore').textContent = `You scored ${testScore}/${testQs.length} (${Math.round(percent)}%)`;
+    state.quizzesPassed++;
+    addXP(25);
+  }
+}
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+function toggleAuthMode() {
+  state.authMode = state.authMode === 'login' ? 'signup' : 'login';
+  const isLogin = state.authMode === 'login';
+  document.getElementById('authTitle').textContent = isLogin ? 'Welcome Back' : 'Create Account';
+  document.getElementById('authSub').textContent = isLogin ? 'Login to continue learning' : 'Start your English journey';
+  document.getElementById('authBtn').textContent = isLogin ? 'Login' : 'Sign Up';
+  document.getElementById('nameGroup').classList.toggle('hidden', isLogin);
+  document.getElementById('authSwitchText').textContent = isLogin ? "Don't have an account?" : 'Already have an account?';
+  document.getElementById('authSwitchLink').textContent = isLogin ? 'Sign up' : 'Login';
+}
+function handleAuth() {
+  const email = document.getElementById('authEmail').value.trim();
+  const pass = document.getElementById('authPass').value.trim();
+  if (!email || !pass) { toast('Please fill all fields.','error'); return; }
+  toast(state.authMode === 'login' ? 'Login successful (demo)' : 'Signup successful (demo)', 'success');
+  nav('dashboard');
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+renderLevels();
+renderGrammarTopics();
+renderVocab();
+searchVocab();
+updateStats();
+
+const today = new Date().toDateString();
+if (localStorage.getItem('efAI_lastVisit') !== today) {
+  state.streak = (state.streak || 0) + 1;
+  localStorage.setItem('efAI_lastVisit', today);
+  saveState();
+  updateStats();
+}
+</script>
+<script src="clerk-nav.js"></script>
+</body>
+</html>
